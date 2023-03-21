@@ -56,3 +56,23 @@ document.getElementById('button_id').onclick=function(){
     // document.getElementById('label_id').innerHTML="Enter the here Designation:"
 }
 */
+
+//Type-Casting:- changing one datatype to another(String, Number, Boolean)
+let age=window.prompt("What is your age?");//suppose age=25
+age+=1;     //25+1
+console.log(age)    //251 (Because age is string here,it'll concat)
+console.log(typeof age) //string
+age=Number(age)
+console.log(typeof age) //number (Type-casted)
+
+let mynum=12.3
+console.log(mynum+' '+typeof mynum)
+// or
+console.log(mynum ,typeof mynum )
+mynum=String(mynum)
+console.log(mynum, typeof mynum)
+
+let myname='';
+console.log(myname,typeof myname)   //string
+myname=Boolean(myname)
+console.log(typeof myname, myname)  ///boolean false
