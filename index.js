@@ -57,7 +57,8 @@ document.getElementById('button_id').onclick=function(){
 }
 */
 
-//Type-Casting:- changing one datatype to another(String, Number, Boolean)
+//5.Type-Casting:- changing one datatype to another(String, Number, Boolean)
+/*
 let age=window.prompt("What is your age?");//suppose age=25
 age+=1;     //25+1
 console.log(age)    //251 (Because age is string here,it'll concat)
@@ -76,3 +77,13 @@ let myname='';
 console.log(myname,typeof myname)   //string
 myname=Boolean(myname)
 console.log(typeof myname, myname)  ///boolean false
+*/
+
+//6.const:= it's like a final keyword in java. 
+
+const PI=3.14;
+let radius=window.prompt('Enter the radius here...');
+radius=Number(radius)
+console.log(radius);
+let circumference=2*PI*radius;
+console.log(circumference+' is circumference')
