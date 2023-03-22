@@ -128,7 +128,7 @@ console.log(c)  //3.14 (PI -is constant pre-deifined value)
 
 //8. Rectangle-Tri-angle value, by taking user input.
 //formula(c=sqrt(a*a+b*b))
-/*
+
 let side1=4;
 let side2=3;
 let side3=Math.sqrt(Math.pow(side1,2)+Math.pow(side2,2))
@@ -160,4 +160,6 @@ console.log(b,typeof b)
 
 let c=Math.sqrt(Math.pow(a,2)+Math.pow(b,2))
 console.log(c,' is the 3rd angle.')
-*/
+
+
+//
