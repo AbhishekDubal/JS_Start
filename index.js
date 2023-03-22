@@ -150,9 +150,6 @@ document.getElementById('submit_id').onclick=function(){
     document.getElementById('text3_id').innerHTML='Side 3: ' +side3
 }
 
-
-*/
-
 //Another easy way:
 let a=window.prompt("Enter a= ");
 a=Number(a)
@@ -163,3 +160,20 @@ console.log(b,typeof b)
 
 let c=Math.sqrt(Math.pow(a,2)+Math.pow(b,2))
 console.log(c,' is the 3rd angle.')
+*/
+
+//Counter Program
+
+let count=0;
+document.getElementById('increase_id').onclick=function(){
+    count+=1;
+    document.getElementById('label_id').innerHTML=count;
+}
+document.getElementById('decrease_id').onclick=function(){
+    count-=1;
+    document.getElementById('label_id').innerHTML=count;
+}
+document.getElementById('reset_id').onclick=function(){
+    count=0
+    document.getElementById('label_id').innerHTML=count
+}
