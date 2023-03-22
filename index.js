@@ -80,10 +80,84 @@ console.log(typeof myname, myname)  ///boolean false
 */
 
 //6.const:= it's like a final keyword in java. 
-
+/*
 const PI=3.14;
 let radius=window.prompt('Enter the radius here...');
 radius=Number(radius)
 console.log(radius);
 let circumference=2*PI*radius;
 console.log(circumference+' is circumference')
+*/
+
+//7.Math class
+/*
+let num=10.6;
+num=Math.round(num);
+console.log(num)    //11 (it'll round-off the given value to NEARest value)
+
+let x=12.8;
+x=Math.floor(x)
+console.log(x)  //12  (it'll round-off to LOWest value)
+
+let y=20.1;
+y=Math.ceil(y)
+console.log(y)  //21 (it'll always round-off to GREATer value)
+
+let z=25;
+z=Math.sqrt(z)
+console.log(z)  //5
+
+z=Math.pow(z,2)
+console.log(z)  //25
+
+let a=2.5;
+a=Math.abs(a)
+console.log(a)  //2.5 (it'll tell you how far this number is from ZERO)
+
+let max_value=Math.max(x,y,z)
+console.log(max_value," is maximum value");
+let min_value=Math.min(x,y,z)
+console.log(min_value+ " is minimum")
+  
+let b=Math.min(14,335,553,5)
+console.log(b)
+
+let c=Math.PI
+console.log(c)  //3.14 (PI -is constant pre-deifined value)
+*/
+
+//8. Rectangle-Tri-angle value, by taking user input.
+//formula(c=sqrt(a*a+b*b))
+/*
+let side1=4;
+let side2=3;
+let side3=Math.sqrt(Math.pow(side1,2)+Math.pow(side2,2))
+console.log(side3)
+
+//Now by user input:
+document.getElementById('submit_id').onclick=function(){
+    side1=document.getElementById('text1_id').value;
+    side1=Number(side1)
+    console.log(side1,typeof side1);
+
+    side2=document.getElementById('text2_id').value
+    side2=Number(side2)
+    console.log(side2);
+
+    side3=Math.sqrt(Math.pow(side1,2)+Math.pow(side2,2))
+    console.log(side3);
+
+    document.getElementById('text3_id').innerHTML='Side 3: ' +side3
+}
+
+//Another easy way:
+let a=window.prompt("Enter a= ");
+a=Number(a)
+console.log(a,typeof a)
+let b=window.prompt('Enter b=');
+b=Number(b)
+console.log(b,typeof b)
+
+let c=Math.sqrt(Math.pow(a,2)+Math.pow(b,2))
+console.log(c,' is the 3rd angle.')
+*/
