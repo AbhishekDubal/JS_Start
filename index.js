@@ -162,8 +162,8 @@ let c=Math.sqrt(Math.pow(a,2)+Math.pow(b,2))
 console.log(c,' is the 3rd angle.')
 */
 
-//Counter Program
-
+//9.Counter Program
+/*
 let count=0;
 document.getElementById('increase_id').onclick=function(){
     count+=1;
@@ -176,4 +176,20 @@ document.getElementById('decrease_id').onclick=function(){
 document.getElementById('reset_id').onclick=function(){
     count=0
     document.getElementById('label_id').innerHTML=count
+}
+*/
+
+//10.Dice game program
+let person1;
+let person2;
+
+document.getElementById('roll_id').onclick=function(){
+person1=Math.floor(Math.random() * 6) +1;
+person2=Math.floor(Math.random()*6)+1;
+
+document.getElementById('person1_id').innerHTML=person1;
+document.getElementById("person2_id").innerHTML=person2 //displaying on webpage
+
+console.log('person1 got '+person1)
+console.log('person2 got '+person2)//These two for keeping records
 }
