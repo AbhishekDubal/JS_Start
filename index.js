@@ -217,7 +217,7 @@ console.log(phoneNumber.replace('-',''));
 */
 
 //12. String Slicing.:-It's like sub-string (used to extract char from string)
-
+/*
 let fullName="Abhishek Dubalgunde"
 let firstName,lastName;
 
@@ -238,5 +238,14 @@ lastName=fullName.slice(fullName.indexOf(' '))
 console.log(lastName)
 lastName=fullName.slice(fullName.indexOf(' ')+1)
 console.log(lastName)
+*/
+
+//13.Method Chaining...//
+//:-Calling multiple methods by single line-of-code;
+let myName=" abhishek";
+
+let temp=myName.trim().charAt(0).toUpperCase();
+
+console.log(temp)   //A
 
 
