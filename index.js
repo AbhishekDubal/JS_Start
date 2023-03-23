@@ -242,10 +242,25 @@ console.log(lastName)
 
 //13.Method Chaining...//
 //:-Calling multiple methods by single line-of-code;
+/*
 let myName=" abhishek";
 
 let temp=myName.trim().charAt(0).toUpperCase();
 
 console.log(temp)   //A
+*/
 
+//14. if, if-else, if-else-if statements:-
 
+// let age=20;
+let age=window.prompt('Enter here, How old are you.?')
+
+if(age>=18){
+    console.log('Hey, you can vote now...!')
+}
+else if(age<=0){
+    console.log('You have not even born yet...!')
+}
+else{
+    console.log("Sorry, kid you're not Eligible...!")
+}
