@@ -180,6 +180,7 @@ document.getElementById('reset_id').onclick=function(){
 */
 
 //10.Dice game program
+/*
 let person1;
 let person2;
 
@@ -193,3 +194,24 @@ document.getElementById("person2_id").innerHTML=person2 //displaying on webpage
 console.log('person1 got '+person1)
 console.log('person2 got '+person2)//These two for keeping records
 }
+*/
+
+//11.String pre-definded methods:
+
+let StudentName="Abhishek";
+let phoneNumber="+91-9073462864"
+
+console.log(StudentName.length)
+let lengthInName=StudentName.length
+console.log(lengthInName)
+
+console.log(StudentName.charAt(2))
+console.log(StudentName.indexOf('h'))
+console.log(StudentName.lastIndexOf('h'))
+console.log(StudentName.toLowerCase())
+console.log(StudentName.charCodeAt(1))  //ASCI value
+console.log(StudentName.toUpperCase())
+console.log(StudentName.trim())
+console.log(StudentName.replace('shek',' D'))
+console.log(phoneNumber.replace('-',''));
+
