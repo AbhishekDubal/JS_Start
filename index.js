@@ -251,7 +251,7 @@ console.log(temp)   //A
 */
 
 //14. if, if-else, if-else-if statements:-
-
+/*
 // let age=20;
 let age=window.prompt('Enter here, How old are you.?')
 
@@ -263,4 +263,29 @@ else if(age<=0){
 }
 else{
     console.log("Sorry, kid you're not Eligible...!")
+}
+*/
+
+//15.Check box by if-else statements:
+
+document.getElementById('payButton').onclick=function(){
+    
+if(document.getElementById('myCheckBox').checked)
+{
+    console.log('Checked...!')
+} else
+{
+    console.log('Please Check our T&C')
+}
+
+if (document.getElementById('myWallet').checked) 
+{
+    console.log('Wallet has been Choosen...!')
+} else if(document.getElementById('myUPI').checked)
+{
+    console.log('Upi method has been choosen.!')
+}else
+{
+    console.log('Card has been selected for payment.!')
+}
 }
