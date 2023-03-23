@@ -197,7 +197,7 @@ console.log('person2 got '+person2)//These two for keeping records
 */
 
 //11.String pre-definded methods:
-
+/*
 let StudentName="Abhishek";
 let phoneNumber="+91-9073462864"
 
@@ -214,4 +214,29 @@ console.log(StudentName.toUpperCase())
 console.log(StudentName.trim())
 console.log(StudentName.replace('shek',' D'))
 console.log(phoneNumber.replace('-',''));
+*/
+
+//12. String Slicing.
+
+let fullName="Abhishek Dubalgunde"
+let firstName,lastName;
+
+firstName=fullName.slice(0,9)   //it's like sub-string in sql
+lastName=fullName.slice(9)  //2nd, not nessesary when you're extracting lastwords
+
+console.log(firstName)
+console.log(lastName)
+
+//Another-way to do it...//
+
+ fullName='Harsha Bhogle'
+
+firstName=fullName.slice(0,fullName.indexOf(' '))
+console.log(firstName)
+
+lastName=fullName.slice(fullName.indexOf(' '))
+console.log(lastName)
+lastName=fullName.slice(fullName.indexOf(' ')+1)
+console.log(lastName)
+
 
