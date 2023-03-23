@@ -216,7 +216,7 @@ console.log(StudentName.replace('shek',' D'))
 console.log(phoneNumber.replace('-',''));
 */
 
-//12. String Slicing.
+//12. String Slicing.:-It's like sub-string (used to extract char from string)
 
 let fullName="Abhishek Dubalgunde"
 let firstName,lastName;
