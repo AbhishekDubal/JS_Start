@@ -291,7 +291,7 @@ if (document.getElementById('myWallet').checked)
 }
 */
 
-//Switch Statement:
+//16.Switch Statement:
 /*
 let myChoice='A'
 
@@ -318,7 +318,7 @@ switch (myChoice)
 }
 */
 
-//AND,OR,NOT operators:-
+//(17,18).AND,OR,NOT operators:-
 /*
 let age=7;
 
@@ -340,7 +340,7 @@ let x=5;
 console.log(x!=6)   //true
 */
 
-//While, do-while loop:
+//(19,20).While, do-while loop:
 /*
 let myName='';
 
@@ -358,4 +358,10 @@ while(myName==''|| myName==null);
 console.log("hey2 "+myName)
 */
 
-//
+//for loop:
+
+for (let i = 3; i >0 ; i--) //i-=1 use if you want to insted i--
+{
+    console.log(i)  
+}   
+console.log('Happy New Year...!')
