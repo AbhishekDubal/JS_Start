@@ -292,7 +292,7 @@ if (document.getElementById('myWallet').checked)
 */
 
 //Switch Statement:
-
+/*
 let myChoice='A'
 
 switch (myChoice)
@@ -315,4 +315,22 @@ switch (myChoice)
         default:
             console.log(myChoice+' is not a valid choice.')
         break;
+}
+*/
+
+//AND,OR operators:-
+
+let age=7;
+
+if(age>=18 && age<=60)
+{
+    console.log("You are adult.")
+}
+else if(age<18 || age>60)
+{
+    console.log("You are not adult")
+}
+else
+{
+    console.log("Invalid age "+age)
 }
