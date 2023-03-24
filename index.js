@@ -267,7 +267,7 @@ else{
 */
 
 //15.Check box by if-else statements:
-
+/*
 document.getElementById('payButton').onclick=function(){
     
 if(document.getElementById('myCheckBox').checked)
@@ -288,4 +288,31 @@ if (document.getElementById('myWallet').checked)
 {
     console.log('Card has been selected for payment.!')
 }
+}
+*/
+
+//Switch Statement:
+
+let myChoice='A'
+
+switch (myChoice)
+{
+    case 'A':
+        console.log("You've passed with best marks.")
+        break;
+    case 'B':
+        console.log("you've passed with good marks.")
+    break;
+    case 'C':
+        console.log("you've passed with better than just passing marks.")
+    break;
+    case 'D':
+        console.log("you've passed with just passing marks.")
+    break;
+    case 'F':
+        console.log("you've Failed.")
+    break;
+        default:
+            console.log(myChoice+' is not a valid choice.')
+        break;
 }
