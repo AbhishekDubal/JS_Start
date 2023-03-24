@@ -318,8 +318,8 @@ switch (myChoice)
 }
 */
 
-//AND,OR operators:-
-
+//AND,OR,NOT operators:-
+/*
 let age=7;
 
 if(age>=18 && age<=60)
@@ -334,3 +334,10 @@ else
 {
     console.log("Invalid age "+age)
 }
+*/
+/*
+let x=5;
+console.log(x!=6)   //true
+*/
+
+//
