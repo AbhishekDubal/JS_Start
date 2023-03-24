@@ -340,4 +340,22 @@ let x=5;
 console.log(x!=6)   //true
 */
 
+//While, do-while loop:
+/*
+let myName='';
+
+while(myName=='' || myName==null)
+{
+   myName= window.prompt('Enter your Name: ');
+}
+console.log('hey '+myName)
+//do-while
+do
+{
+    window.prompt("Enter here your name:")
+}
+while(myName==''|| myName==null);
+console.log("hey2 "+myName)
+*/
+
 //
