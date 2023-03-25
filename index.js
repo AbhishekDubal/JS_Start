@@ -474,7 +474,7 @@ example4();//Invoke
 */
 
 //////24. Functions: block of code use for reusabality of code./////
-
+/*
 function mathematics(x,y)   //NOTE: here x,y works and not nessesary in function you have to take a,b
 {
     // let a=10,b=2     //Works
@@ -485,3 +485,25 @@ function mathematics(x,y)   //NOTE: here x,y works and not nessesary in function
 }
 let a=10,b=2
 mathematics(a,b);   //Invoke function. 
+*/
+
+////25. Return in function: It returns value when you invoke function//////
+
+function addition(a,b){
+    let c=a+b;
+    return c;
+}
+var a,b;
+let result=addition(20,10);
+console.log(result);
+
+//Another example:
+let hight=window.prompt("Enter hight : ");
+let width=window.prompt("Enter width : ");
+let  area;
+function totalArea(hight,width){
+     area=hight*width;
+    return area;
+}
+let r=totalArea(hight,width)
+console.log(r); //You can directly put "area" in log, by skipping above line of code.
