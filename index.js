@@ -471,6 +471,13 @@ function example4()
     let a=30;
 }
 example4();//Invoke
+
+//Another general EXTRA example
+
+for(var i=1;i<=4;i++){
+     console.log(i)     //output:1 2 3 4
+}
+console.log(i)  //output: 5 (Because the i++ is post increment, so it was holding a value)
 */
 
 //////24. Functions: block of code use for reusabality of code./////
@@ -487,7 +494,7 @@ let a=10,b=2
 mathematics(a,b);   //Invoke function. 
 */
 
-////25. Return in function: It returns value when you invoke function//////
+////(25).Return in function: It returns value when you invoke function//////
 /*
 function addition(a,b){
     let c=a+b;
@@ -509,18 +516,55 @@ let r=totalArea(hight,width)
 console.log(r); //You can directly put "area" in log, by skipping above line of code.
 */
 
-////26.Ternary Operator: shortcut for if/else statement///////
+////(26).Ternary Operator: shortcut for if/else statement//////
 //condition ? expressionIfTrue : expressionIfFalse
-
+/*
 function checkAdult(age){
     return age>18 ? true : false;
 }
 // let age=30; //NOTE: You Do Not have to write this.
 let result=checkAdult(24);
 console.log(result);
-
+*//*
 //Another example:-
 function checkOddEven(number){
     number%2==0 ? console.log('Number is Even') : console.log("Number is Odd")
 }
 let x=checkOddEven(13);
+*/
+//The same program works in other way aswell.shown below...
+/*
+function checkOddEven(number){
+    number%2==0 ? console.log('Number is Even') : console.log("Number is Odd")
+}
+let x=checkOddEven(true);
+*/
+
+////(28). Template Literals:- Instead of "" and '' we can use ``.///////
+
+let myName='Rohit';
+let myAge=23;
+let mySalary=5000;
+//Normal way
+console.log('Hey, guys. This is ',myName);
+console.log('I am ',myAge, 'year old');
+console.log("My salary is $"+mySalary);
+
+//#1.By using ``
+console.log(`Hey,guys. This is ${myName}`)
+console.log(`I am ${myAge} year old now`);
+console.log(`My salary is $${mySalary}`);
+//#2.
+let information=`Hey,guys. 
+This is ${myName}
+I am ${myAge} year old now.
+My salary is $${mySalary}`;
+
+console.log(information);
+//#3.On website display
+    information=`Hey,guys. <br>
+    This is ${myName}       <br>
+    I am ${myAge} year old now. <br>
+    My salary is $${mySalary}`;
+    document.getElementById('displayOnWeb').innerHTML = information;
+    
