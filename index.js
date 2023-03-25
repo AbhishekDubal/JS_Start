@@ -541,7 +541,7 @@ let x=checkOddEven(true);
 */
 
 ////(28). Template Literals:- Instead of "" and '' we can use ``.///////
-
+/*
 let myName='Rohit';
 let myAge=23;
 let mySalary=5000;
@@ -567,4 +567,27 @@ console.log(information);
     I am ${myAge} year old now. <br>
     My salary is $${mySalary}`;
     document.getElementById('displayOnWeb').innerHTML = information;
-    
+    */
+
+    ////Currency Format:
+
+    let myMoney=64785456.548;
+    console.log(myMoney);
+    // myMoney=myMoney.toLocaleString('hi-IN');    
+    // console.log(myMoney);       //6,47,85,456.548
+    // myMoney=myMoney.toLocaleString("en-US")
+    // console.log(myMoney);       //64,785,456.548
+    // myMoney=myMoney.toLocaleString("de-DE")  //German
+    // console.log(myMoney)          //64.785.456,548
+
+//      myMoney=myMoney.toLocaleString("en-US", {style:"currency", currency:"USD"})   //$64,785,456.55
+        // myMoney=myMoney.toLocaleString("hi-IN", {style: "currency", currency:"INR"})  //₹6,47,85,456.55
+        myMoney=myMoney.toLocaleString("DE-DE", {style:"currency", currency:"uro"})
+        console.log(myMoney);       //64.785.456,55 URO
+
+        let num=78;
+        // num=num.toLocaleString(undefined, {style:"percent"})
+        // console.log(num);    //7,800%
+
+        num=num.toLocaleString(undefined, {style:"unit", unit:"celsius"})
+        console.log(num);      //78°C
