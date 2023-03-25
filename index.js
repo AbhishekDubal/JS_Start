@@ -318,7 +318,7 @@ switch (myChoice)
 }
 */
 
-//(17,18).AND,OR,NOT operators:-
+//(17,18).AND,OR,NOT operators:-    ///////////////////
 /*
 let age=7;
 
@@ -340,7 +340,7 @@ let x=5;
 console.log(x!=6)   //true
 */
 
-//(19,20).While, do-while loop:
+//(19,20).While, do-while loop: ///////////////////
 /*
 let myName='';
 
@@ -358,7 +358,7 @@ while(myName==''|| myName==null);
 console.log("hey2 "+myName)
 */
 
-//21.for loop:
+//21.for loop:      //////////////////
 /*
 for (let i = 3; i >0 ; i--) //i-=1 use if you want to insted i--
 {
@@ -367,7 +367,7 @@ for (let i = 3; i >0 ; i--) //i-=1 use if you want to insted i--
 console.log('Happy New Year...!')
 */
 
-//22. Difference between break and coninue:
+//22. Difference between break and coninue: ////////////////
 /*
 for(let i=1;i<=10;i+=1)
 {
@@ -388,7 +388,7 @@ for(let i=1;i<=10;i+=1)
 }
 */
 
-//23. Nested for-loop:
+//23. Nested for-loop:  ////////////////////////
 /*
 let rows=window.prompt('Enter rows:');
 let columns=window.prompt('Enter columns:');
@@ -414,8 +414,8 @@ for(var i = 1; i <= rows; i++){
   document.write("<br>");
 }*/
 
-/////////27.  VAR vs LET difference//////////
-
+/////////27.  VAR vs LET difference///////////////////////
+/*
 ///VAR: has function level scope!
 function example1()
 {
@@ -471,3 +471,17 @@ function example4()
     let a=30;
 }
 example4();//Invoke
+*/
+
+//////24. Functions: block of code use for reusabality of code./////
+
+function mathematics(x,y)   //NOTE: here x,y works and not nessesary in function you have to take a,b
+{
+    // let a=10,b=2     //Works
+    console.log('addition of two numbers is: ',(a+b));  //12
+    console.log('subtraction of two numbers is: ',(a-b));   //8
+    console.log('multiplication of two numbers is: ',(a*b));//20
+    console.log('Divison of two numbers is: ',(a/b));   //5
+}
+let a=10,b=2
+mathematics(a,b);   //Invoke function. 
