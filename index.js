@@ -389,18 +389,19 @@ for(let i=1;i<=10;i+=1)
 */
 
 //23. Nested for-loop:
-
-
+/*
 let rows=window.prompt('Enter rows:');
 let columns=window.prompt('Enter columns:');
 for(let i=1; i<=rows;i++)
 {
     for(let j=1;j<=columns;j++)
     {
-        document.getElementById('displayOnWeb').innerHTML += j+' ';
+        document.getElementById('displayOnWeb').innerHTML +=' *';
     }
     document.getElementById('displayOnWeb').innerHTML+="<br>" ;
 }
+//The reason why += is used instead of = is to add the new string to the existing string, instead of replacing the existing string.
+*///By using +=, the new string is appended to the end of the existing string, allowing each iteration to add its own value to the display.
 
 /*      //without using html part//
 var rows = 5;
@@ -412,3 +413,61 @@ for(var i = 1; i <= rows; i++){
   }
   document.write("<br>");
 }*/
+
+/////////27.  VAR vs LET difference//////////
+
+///VAR: has function level scope!
+function example1()
+{
+    var x=1;
+    if(true){
+        x=2;
+        console.log(x); //output:2
+    }
+    console.log(x); // output:2
+}
+example1(); //invoking or calling the function
+
+///LET: has block level scope!
+function example2() 
+{
+    let y = 1;
+    if (true) {
+      let y = 2;
+      console.log(y); // Output: 2
+    }
+    console.log(y); // Output: 1
+  }
+  example2();   //invoke
+  
+  ///VAR is Hoisted, while LET is not.//
+ function example3a()
+ {
+    if(true){
+        console.log(z)  //output: undefined
+    }
+    var z=22;
+ }
+ example3a();// Invoke function
+//~Another example of above VAR is Hoisted.
+ function example3b()
+ {
+    z=10
+    if(true){
+        console.log(z)  //output: 10
+    }
+    var z=22;
+ }
+ example3b();// Invoke function
+ //Because var variables are hoisted, the variable declaration is moved to the top of the function,
+
+ ///LET: isn't Hoisted.!
+function example4()
+{
+    if(true)
+    {
+        console.log(a); //output: Uncaught ReferenceError: Cannot access 'a' before initialization
+    }
+    let a=30;
+}
+example4();//Invoke
