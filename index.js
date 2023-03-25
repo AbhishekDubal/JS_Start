@@ -368,7 +368,7 @@ console.log('Happy New Year...!')
 */
 
 //22. Difference between break and coninue:
-
+/*
 for(let i=1;i<=10;i+=1)
 {
     if(i==5)
@@ -380,9 +380,35 @@ for(let i=1;i<=10;i+=1)
 
 for(let i=1;i<=10;i+=1)
 {
-    if(i==5)
+    if(i==6)
     {
         continue
     }
     console.log(i)  // 6 7 8 9 10
 }
+*/
+
+//23. Nested for-loop:
+
+
+let rows=window.prompt('Enter rows:');
+let columns=window.prompt('Enter columns:');
+for(let i=1; i<=rows;i++)
+{
+    for(let j=1;j<=columns;j++)
+    {
+        document.getElementById('displayOnWeb').innerHTML += j+' ';
+    }
+    document.getElementById('displayOnWeb').innerHTML+="<br>" ;
+}
+
+/*      //without using html part//
+var rows = 5;
+var columns = 5;
+
+for(var i = 1; i <= rows; i++){
+  for(var j = 1; j <= columns; j++){
+    document.write(i * j + " ");
+  }
+  document.write("<br>");
+}*/
