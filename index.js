@@ -594,7 +594,7 @@ console.log(information);
 */
 
 ///30. Number Guess Game:       ////////////
-
+/*
 let answer=Math.floor(Math.random ()* 10 + 1);
 let count=0;
 let myGuess;
@@ -617,4 +617,34 @@ document.getElementById('submitButton').onclick= function(){
         console.log(`your guess is wrong. Try again.!`)
     }
     console.log(answer, myGuess)//Additional line for better checking the both results
+}
+*/
+
+///((31)).Temperature to Celsius and Fahrenhiet:-   /////////
+
+let temperature;
+
+function toCelsius(temperature){
+   return (temperature-32)*(5/9);
+}
+
+function toFahrenheit(temperature){
+    return (temperature*(9/5))+32;
+}
+
+document.getElementById('submitButton').onclick=function(){
+    if(document.getElementById('Celsius').checked){
+        temperature=document.getElementById('tempInput').value;
+        temperature=Number(temperature);
+        temperature=toCelsius(temperature);
+        document.getElementById('resultLabel').innerHTML=temperature;
+    }
+    else if(document.getElementById('Fahrenhiet').checked){
+        temperature=document.getElementById('tempInput').value;
+        temperature=Number(temperature);
+        temperature=toFahrenheit(temperature);
+     document.getElementById('resultLabel').innerHTML= temperature;
+    }
+    
+
 }
