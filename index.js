@@ -569,8 +569,8 @@ console.log(information);
     document.getElementById('displayOnWeb').innerHTML = information;
     */
 
-    ////Currency Format:
-
+    ////29.Currency Format:        /////////////////
+/*
     let myMoney=64785456.548;
     console.log(myMoney);
     // myMoney=myMoney.toLocaleString('hi-IN');    
@@ -591,3 +591,30 @@ console.log(information);
 
         num=num.toLocaleString(undefined, {style:"unit", unit:"celsius"})
         console.log(num);      //78°C
+*/
+
+///30. Number Guess Game:       ////////////
+
+let answer=Math.floor(Math.random ()* 10 + 1);
+let count=0;
+let myGuess;
+document.getElementById('submitButton').onclick= function(){
+    myGuess=document.getElementById('enteredInBox').value;
+    myGuess=Number(myGuess)
+    count+=1;
+
+    if(answer==myGuess)
+    {
+        console.log(`Your guess is Correct.! You took ${count} times to get it done.`)
+    }
+    else if(answer< myGuess){
+        console.log(`Your guess is smaller than the Actual Number`)
+    }
+    else if(answer> myGuess){
+        console.log(`Your guess is greater than the Actual Number`)
+    }
+    else{
+        console.log(`your guess is wrong. Try again.!`)
+    }
+    console.log(answer, myGuess)//Additional line for better checking the both results
+}
