@@ -676,7 +676,7 @@ let index=students.indexOf("Virat");
 console.log(index);     //1
 */
 
-///(33). Printing Array by nested for-each:
+///(33). Printing 2D-Array by nested for-each:
 /*
 let fruits=['banana','mango',"apple"]
 let chakhna=['lays','kurkure','chips']
@@ -693,11 +693,40 @@ for(let list of buyingList){
 */
 
 ////(34). Array of string elements sorting:-/////
-
+/*
 let fruits=['banana','mango',"apple"]
 fruits.sort();
 console.log(fruits);    //(3) ['apple', 'banana', 'mango']
 
+for(let x of fruits){
+    console.log(fruits);
+}
 //Reverse order
 fruits.sort().reverse();
 console.log(fruits);    //(3) ['mango', 'banana', 'apple']
+
+for(let y of fruits){
+    console.log(fruits);
+}
+*/
+
+////(35). Printing arrays numbers:
+
+let num=[2,4,5,6,8];
+
+for(let i =0;i<num.length;i++){
+    console.log(num[i])
+}
+//OR
+for(let i of num){
+    console.log(i)
+}
+////(36). Sort numbers of array elements:-  ///////
+
+let numbers=[11,2,4,43,5,22,5,57,36]
+
+numbers.sort(); //NOTE: It'll only consider 1st element of each number.
+                //So, it'll only better usefull for string cases.
+console.log(numbers);   // [11, 2, 22, 36, 4, 43, 5, 5, 57]
+numbers.sort().reverse();
+console.log(numbers);   //[57, 5, 5, 43, 4, 36, 22, 2, 11]
