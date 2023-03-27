@@ -736,7 +736,7 @@ console.log(numbers);   //[57, 5, 5, 43, 4, 36, 22, 2, 11]
 */
 
 ///(37). Spread operator(...):-it'll unpacks the elements.
-
+/*
 let x=[2,3,26,74,84,30,5];
 
 console.log(...x);//it'll sperad the the elements and print.
@@ -748,5 +748,18 @@ let class1=['student1','student2','student3']
 let class2=['student4','student5','student6']
 class1.push(...class2)  //add class2 elements in class1
 console.log(...class1); //helps to print in right manner
+*/
 
+///(38). Rest Parameter(...):- It'll packs the elements.
+
+let result=sum(10,20,33,222,24);
+
+function sum(...anything){
+    let total=0;
+    for(let x of anything){
+        total += x;
+    }
+    return total;
+}
+console.log(result);
 
