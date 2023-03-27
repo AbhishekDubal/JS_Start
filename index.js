@@ -621,14 +621,14 @@ document.getElementById('submitButton').onclick= function(){
 */
 
 ///((31)).Temperature to Celsius and Fahrenhiet:-   /////////
-
+/*
 let temperature;
 
 function toCelsius(temperature){
    return (temperature-32)*(5/9);
 }
 
-function toFahrenheit(temperature){
+function toFahrenhiet(temperature){
     return (temperature*(9/5))+32;
 }
 
@@ -637,14 +637,40 @@ document.getElementById('submitButton').onclick=function(){
         temperature=document.getElementById('tempInput').value;
         temperature=Number(temperature);
         temperature=toCelsius(temperature);
-        document.getElementById('resultLabel').innerHTML=temperature;
+        document.getElementById('resultLabel').innerHTML=temperature,°C;
     }
     else if(document.getElementById('Fahrenhiet').checked){
         temperature=document.getElementById('tempInput').value;
         temperature=Number(temperature);
-        temperature=toFahrenheit(temperature);
-     document.getElementById('resultLabel').innerHTML= temperature;
+        temperature=toFahrenhiet(temperature);
+     document.getElementById('resultLabel').innerHTML= temperature,°F;
     }
-    
-
 }
+*/
+
+///(32). Array:- It's a container, having group of elements.
+
+let students=["Abhi", 'Virat', "Rohit","AB"];
+
+console.log(students)   //output= (4) ['Abhi', 'Virat', 'Rohit', 'AB']
+
+students[0]="Starc";    //output=(4) ['Starc', 'Virat', 'Rohit', 'AB']
+console.log(students)   //Because it'll override the previous value and print current value.
+
+students.push("Maxwell");
+console.log(students);  //it'll add element at last
+
+students.pop();
+console.log(students);  //it'll delete last element
+
+students.shift();       
+console.log(students);  //it'll delete first element
+
+students.unshift("Chriss");
+console.log(students);  //it'll add element at first.
+
+let length=students.length;
+console.log(length);     //4
+
+let index=students.indexOf("Virat");
+console.log(index);     //1
