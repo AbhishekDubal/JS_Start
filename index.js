@@ -685,6 +685,8 @@ let drinks=['sprite','cocacola','thumbsup']
 let buyingList=[fruits, chakhna,drinks]
 
 console.log(buyingList); //output:- (3) [Array(3), Array(3), Array(3)]
+
+buyingList[0][1]="Lemon";
 for(let list of buyingList){
     for(let bought of list){
         console.log(bought);
@@ -711,7 +713,7 @@ for(let y of fruits){
 */
 
 ////(35). Printing arrays numbers:
-
+/*
 let num=[2,4,5,6,8];
 
 for(let i =0;i<num.length;i++){
@@ -721,6 +723,7 @@ for(let i =0;i<num.length;i++){
 for(let i of num){
     console.log(i)
 }
+
 ////(36). Sort numbers of array elements:-  ///////
 
 let numbers=[11,2,4,43,5,22,5,57,36]
@@ -730,3 +733,20 @@ numbers.sort(); //NOTE: It'll only consider 1st element of each number.
 console.log(numbers);   // [11, 2, 22, 36, 4, 43, 5, 5, 57]
 numbers.sort().reverse();
 console.log(numbers);   //[57, 5, 5, 43, 4, 36, 22, 2, 11]
+*/
+
+///(37). Spread operator(...):-it'll unpacks the elements.
+
+let x=[2,3,26,74,84,30,5];
+
+console.log(...x);//it'll sperad the the elements and print.
+
+let maximum=Math.max(...x);//84
+console.log(maximum);
+
+let class1=['student1','student2','student3']
+let class2=['student4','student5','student6']
+class1.push(...class2)  //add class2 elements in class1
+console.log(...class1); //helps to print in right manner
+
+
