@@ -751,7 +751,7 @@ console.log(...class1); //helps to print in right manner
 */
 
 ///(38). Rest Parameter(...):- It'll packs the elements.
-
+/*
 let result=sum(10,20,33,222,24);
 
 function sum(...anything){
@@ -762,4 +762,25 @@ function sum(...anything){
     return total;
 }
 console.log(result);
+*/
 
+///(39). CallBack :-is a function passed as an argument to another function.
+//It'll help you to make sure that function is not going to run before a task is complted. 
+
+sumOfNumbers(5,10,20,30,resultOnConsole);
+sumOfNumbers(5,10,20,30,resultOnWeb);
+
+function sumOfNumbers(a,b,c,d,callingBack){
+    let result=a+b+c+d;
+    callingBack(result);
+}
+
+function resultOnConsole(result){
+    console.log(result);
+}
+
+function resultOnWeb(result){
+    document.getElementById('label').innerHTML=result;
+}
+//NOTE: We could have done it in easy way. But this way will help us to complete the task first and get the result and then call the method which is going to execute.
+//Basic reason is to not get the error because of value didn't had while calling method.
