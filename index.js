@@ -677,7 +677,7 @@ console.log(index);     //1
 */
 
 ///(33). Printing Array by nested for-each:
-
+/*
 let fruits=['banana','mango',"apple"]
 let chakhna=['lays','kurkure','chips']
 let drinks=['sprite','cocacola','thumbsup']
@@ -690,3 +690,14 @@ for(let list of buyingList){
         console.log(bought);
     }
 }
+*/
+
+////(34). Array of string elements sorting:-/////
+
+let fruits=['banana','mango',"apple"]
+fruits.sort();
+console.log(fruits);    //(3) ['apple', 'banana', 'mango']
+
+//Reverse order
+fruits.sort().reverse();
+console.log(fruits);    //(3) ['mango', 'banana', 'apple']
