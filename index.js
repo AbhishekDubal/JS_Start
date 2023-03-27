@@ -649,7 +649,7 @@ document.getElementById('submitButton').onclick=function(){
 */
 
 ///(32). Array:- It's a container, having group of elements.
-
+/*
 let students=["Abhi", 'Virat', "Rohit","AB"];
 
 console.log(students)   //output= (4) ['Abhi', 'Virat', 'Rohit', 'AB']
@@ -674,3 +674,19 @@ console.log(length);     //4
 
 let index=students.indexOf("Virat");
 console.log(index);     //1
+*/
+
+///(33). Printing Array by nested for-each:
+
+let fruits=['banana','mango',"apple"]
+let chakhna=['lays','kurkure','chips']
+let drinks=['sprite','cocacola','thumbsup']
+
+let buyingList=[fruits, chakhna,drinks]
+
+console.log(buyingList); //output:- (3) [Array(3), Array(3), Array(3)]
+for(let list of buyingList){
+    for(let bought of list){
+        console.log(bought);
+    }
+}
