@@ -831,7 +831,7 @@ names.forEach(element =>{
 });
 */
 
-////(41). forEach().map: 
+////(41). map() method: 
 //It'll perform the operation on each elements and return a complete array itself by updating the each elements beased on there previous value.
 /*
 //#1 example: Square each elements of array.
@@ -882,7 +882,7 @@ for(let x of NamesAndPricesOfProducts){
 //\\\\\\\\\\forEach() vs map() difference:\\//\\///\\/\//\/\/
 /*Difference between forEach() and map() is that 'map()' returns a new array with the same number of elements as the original array, while forEach() doesn't create a new array.
 */
-
+/*
 let numbers = [1, 2, 3, 4, 5];
 
 // Using forEach()
@@ -896,3 +896,26 @@ let doubledNumbers = numbers.map(function(number) {
 });
 
 console.log(doubledNumbers);
+*/
+
+//\/\(42). filter():
+// filter() can be useful for a variety of tasks, such as:
+
+//* Filtering out null or undefined values from an array.
+//* Filtering out duplicate values from an array.
+//* Filtering out values that don't meet certain criteria, such as values that are too small or too large.
+
+let ages=[21,30,12,42,10,13,32];
+
+let EligibleVoters = ages.filter((element) =>{
+    return (element>=18);
+});
+console.log(EligibleVoters);
+
+//EvenNumber example:
+let numbers=[1,2,3,4,5,6,7,9,8,10];
+
+let EvenNumbers = numbers.filter( element =>{
+    return element % 2 ===0;
+})
+console.log(EvenNumbers);
