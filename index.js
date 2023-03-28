@@ -787,7 +787,7 @@ function resultOnWeb(result){
 */
 
 ////(40). forEach():
-
+/*
 //#1st way. with FUNCTION keyword (Because there are multiple ways to print forEach())
 let RCB=['virat','ab','chahal','harshal'];
 
@@ -829,3 +829,51 @@ names.forEach((element,index)=>{
 names.forEach(element =>{
     console.log(element)
 });
+*/
+
+////(41). forEach().map: 
+//It'll perform the operation on each elements and return a complete array itself by updating the each elements beased on there previous value.
+
+//#1 example: Square each elements of array.
+let numbers = [1, 2, 3, 4, 5];
+
+let squaredNumbers = numbers.map(function(number) {
+  return number * number;
+});
+
+console.log(squaredNumbers); // Output: [1, 4, 9, 16, 25]
+
+//#2.Example:- power of each elements.
+
+numbers=[1,2,3,4,5];
+
+let powerOfElements=numbers.map(function(element){
+    return Math.pow(element,4);
+});
+
+console.log(powerOfElements);   //output: [1, 16, 81, 256, 625]
+
+//#3.Example:-"'Converting data types'": map() can be used to convert data types. For example, suppose we have an array of strings representing numbers, and we want to convert them to actual numbers:
+ 
+let stringNumbers=['2','3','4','32','22'];
+
+let convertToNumbers= stringNumbers.map(element =>{
+    return parseInt(element);
+})
+
+console.log(convertToNumbers);  //output: [2, 3, 4, 32, 22]
+
+//#4.Ex:-Transforming arrays of objects:
+let buyingProducts=[{product:'Oil', price: 50},{product: 'brush',price:130},{product: 'powder', price:230}];
+
+let NamesAndPricesOfProducts = buyingProducts.map( name =>{
+    return {
+        product: name.product , price : name.price
+    }
+});
+
+console.log(NamesAndPricesOfProducts);
+
+for(let x of NamesAndPricesOfProducts){
+    console.log(x)
+}
