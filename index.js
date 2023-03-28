@@ -833,7 +833,7 @@ names.forEach(element =>{
 
 ////(41). forEach().map: 
 //It'll perform the operation on each elements and return a complete array itself by updating the each elements beased on there previous value.
-
+/*
 //#1 example: Square each elements of array.
 let numbers = [1, 2, 3, 4, 5];
 
@@ -877,3 +877,22 @@ console.log(NamesAndPricesOfProducts);
 for(let x of NamesAndPricesOfProducts){
     console.log(x)
 }
+*/
+
+//\\\\\\\\\\forEach() vs map() difference:\\//\\///\\/\//\/\/
+/*Difference between forEach() and map() is that 'map()' returns a new array with the same number of elements as the original array, while forEach() doesn't create a new array.
+*/
+
+let numbers = [1, 2, 3, 4, 5];
+
+// Using forEach()
+numbers.forEach(function(number) {
+  console.log(number * 2);
+});
+
+// Using map()
+let doubledNumbers = numbers.map(function(number) {
+  return number * 2;
+});
+
+console.log(doubledNumbers);
