@@ -953,3 +953,19 @@ console.log(null === undefined);  // false
 
  * In the second example, the === operator does not perform type coercion, so it checks whether the values are of the same type and have the same value. Since null and undefined are not of the same type, the result is false.
  */
+
+///(44). Reduce(): Allows you to apply a function to each element of an array and reduce the array to a single value.
+
+let prices=[200,324,654,234];
+
+let totalBill=prices.reduce((totalBill,element) =>{     //element is current value. 
+    return totalBill+element;
+},0);
+console.log(totalBill);
+
+//another exmple:=
+let numbers = [1, 2, 3, 4, 5];
+
+let sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+console.log(sum); // Output: 15
