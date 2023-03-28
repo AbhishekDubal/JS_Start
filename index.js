@@ -766,7 +766,7 @@ console.log(result);
 
 ///(39). CallBack :-is a function passed as an argument to another function.
 //It'll help you to make sure that function is not going to run before a task is complted. 
-
+/*
 sumOfNumbers(5,10,20,30,resultOnConsole);
 sumOfNumbers(5,10,20,30,resultOnWeb);
 
@@ -784,3 +784,48 @@ function resultOnWeb(result){
 }
 //NOTE: We could have done it in easy way. But this way will help us to complete the task first and get the result and then call the method which is going to execute.
 //Basic reason is to not get the error because of value didn't had while calling method.
+*/
+
+////(40). forEach():
+
+//#1st way. with FUNCTION keyword (Because there are multiple ways to print forEach())
+let RCB=['virat','ab','chahal','harshal'];
+
+RCB.forEach(function(element,index,array){  ///In place (e,i,a) you can take anything
+    array[index]=element.toUpperCase()
+}); //Here above line will make to uppercase letter to all elements.
+for(let element of RCB){
+    console.log(element);
+}
+
+//#But what if I want only first letter capital.
+let India=['dhoni','sachin','sehwag','harbhajan'];
+
+India.forEach(function(element,index,India){
+    India[index]=element.charAt(0).toUpperCase() + element.slice(1);
+});
+
+for(let element of India){
+    console.log(element);
+}
+
+//#You can also change RCB example and make 1st letter Upper and rest lowercase
+ RCB=['VIRAT', 'AB', 'CHAHAL', 'HARSHAL']
+RCB.forEach(function(element,index,RCB){
+    RCB[index]=element.toLowerCase().charAt(0).toUpperCase() + element.slice(1).toLowerCase()
+});
+
+for(let element of RCB){
+    console.log(element);
+}
+
+///#2nd way of forEach() withouT FUNCTION keyword by (>=):
+let names = ['alice', 'bob', 'charlie'];
+
+names.forEach((element,index)=>{
+    names[index]=element.charAt(0).toUpperCase() + element.slice(1).toLowerCase();
+});
+
+names.forEach(element =>{
+    console.log(element)
+});
