@@ -904,7 +904,7 @@ console.log(doubledNumbers);
 //* Filtering out null or undefined values from an array.
 //* Filtering out duplicate values from an array.
 //* Filtering out values that don't meet certain criteria, such as values that are too small or too large.
-
+/*
 let ages=[21,30,12,42,10,13,32];
 
 let EligibleVoters = ages.filter((element) =>{
@@ -919,3 +919,37 @@ let EvenNumbers = numbers.filter( element =>{
     return element % 2 ===0;
 })
 console.log(EvenNumbers);
+*/
+
+//\\#(43).Difference b/w (`=`,`==`,`===`):- \\\\\\\\
+
+//*\The = operator is the assignment operator, which is used to assign a value to a variable. It is not a comparison operator, and cannot be used to compare values.
+
+//*\The == operator is the equality operator, which checks whether two values are equal. However, it performs type coercion, which means that it may convert one of the values to a different type in order to compare them. For example, "5" == 5 is true, because the string "5" is converted to the number 5 before the comparison is made.
+
+//*\The === operator is the strict equality operator, which checks whether two values are equal and of the same type. It does not perform type coercion, so "5" === 5 is false, because the types are different.
+
+//*\In the example I provided, we are checking whether the current number in the array is even. We use the modulus operator (%) to check whether the number is divisible by 2 (which is the definition of an even number). If the remainder is 0, the number is even, so we want to return true.
+
+//*\We use the strict equality operator === to check whether the remainder is equal to 0. This is because we want to make sure that the remainder is not only a falsy value (like null, undefined, or 0), but also of the correct type (number).
+
+//*\ If we used the loose equality operator ==, it would perform type coercion, which could lead to unexpected results. For example, if the remainder was false, it would be coerced to the number 0, which would incorrectly be considered even. Therefore, we use the strict equality operator === to ensure that we are checking for the correct type and value.
+
+//Example:=
+/*
+console.log(5 == "5");   // true
+console.log(5 === "5");  // false
+*/
+//*\ In the first example, the == operator performs type coercion, so it converts the string "5" to the number 5 before making the comparison. Since 5 is equal to 5, the result is true.
+
+//*\  In the second example, the === operator does not perform type coercion, so it checks whether the values are of the same type and have the same value. Since 5 and "5" are not of the same type, the result is false.
+
+//Here's another example:
+/*
+console.log(null == undefined);   // true
+console.log(null === undefined);  // false
+
+ * In the first example, the == operator performs type coercion, so null is converted to undefined before making the comparison. Since null and undefined are considered equivalent in JavaScript, the result is true.
+
+ * In the second example, the === operator does not perform type coercion, so it checks whether the values are of the same type and have the same value. Since null and undefined are not of the same type, the result is false.
+ */
