@@ -955,7 +955,7 @@ console.log(null === undefined);  // false
  */
 
 ///(44). Reduce(): Allows you to apply a function to each element of an array and reduce the array to a single value.
-
+/*
 let prices=[200,324,654,234];
 
 let totalBill=prices.reduce((totalBill,element) =>{     //element is current value. 
@@ -969,3 +969,18 @@ let numbers = [1, 2, 3, 4, 5];
 let sum = numbers.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 
 console.log(sum); // Output: 15
+*/
+
+///(45). Sort array of numbers  \\\\\\
+
+let rupees=[20,30,23,42,3,42,43,2];
+
+let descendingOrder= rupees.sort((x,y)=>{
+    return y-x;
+});
+console.log(descendingOrder);
+
+let ascendingOrder = rupees.sort(function(firstElemenet,secondElement){
+    return firstElemenet-secondElement;
+})
+console.log(ascendingOrder)
