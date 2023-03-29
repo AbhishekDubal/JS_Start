@@ -972,7 +972,7 @@ console.log(sum); // Output: 15
 */
 
 ///(45). Sort array of numbers  \\\\\\
-
+/*
 let rupees=[20,30,23,42,3,42,43,2];
 
 let descendingOrder= rupees.sort((x,y)=>{
@@ -984,3 +984,56 @@ let ascendingOrder = rupees.sort(function(firstElemenet,secondElement){
     return firstElemenet-secondElement;
 })
 console.log(ascendingOrder)
+*/
+
+///(\46). => instead of function keyword:
+/*
+let numbers = [2,5,3,73,5,6,78,33];
+
+function descendingOrder(x,y){
+    return y-x;
+}
+
+function print(element){
+console.log(element);
+}
+numbers.sort(descendingOrder);
+numbers.sort(print);
+
+numbers.sort((x,y) =>{
+    return x-y;
+})
+numbers.forEach(element => console.log(element));
+*/
+
+///\(47.\) Cards number printing:-
+
+
+let suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
+let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+
+let deck = [];
+
+for (let i = 0; i < suits.length; i++) {
+  for (let j = 0; j < values.length; j++) {
+    deck.push(values[j] + " of " + suits[i]);
+  }
+}
+//now printing the results in two ways. 2nd one is best...!
+// console.log(deck);              //#st way
+// for(let element of deck){ 
+//     console.log(element);       //#2nd way
+// }
+
+function shuffleDeck(deck) {
+    for (let i = deck.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));    //suppose math.floor((0.92) * (12 + 1)) //math.floor(11.96) // output= 11 (because of floor method)
+      [deck[i], deck[j]] = [deck[j], deck[i]];
+    }
+  }
+  
+  shuffleDeck(deck);
+  for (let element of deck){
+    console.log(element);
+  }
+//   console.log(deck);
