@@ -1039,6 +1039,7 @@ function shuffleDeck(deck) {
   }
 //   console.log(deck);
 */
+/*
 let typesOfCards=['Diamond','Spades','Club','Hearts'];
 let valueOfCards=["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 let totalCards=[];
@@ -1060,4 +1061,27 @@ ShuffleCards(totalCards);   //calling function
 
 for(let element of totalCards){
     console.log(element);   //printing cards
+}
+*/
+
+///(48). nested function: function inside another function.
+/* Used for security sake.
+ * Because function which is inside function will not able to acces directly.
+ * with outside function name we can invoke inside function.
+ */
+let username ="Abhishek";
+let balance =50000;
+
+log_in();   //invoke
+
+function log_in(){
+getUserName();
+getBalance();
+
+function getUserName(){
+    console.log(`Hey! ${username}`);
+}
+function getBalance(){
+    console.log(`You've still $${balance} in account.`);
+}
 }
