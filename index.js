@@ -1008,7 +1008,7 @@ numbers.forEach(element => console.log(element));
 
 ///\(47.\) Cards number printing:-
 
-
+/*
 let suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
 let values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
@@ -1032,8 +1032,32 @@ function shuffleDeck(deck) {
     }
   }
   
-  shuffleDeck(deck);
+  shuffleDeck(deck);    //invoke function
+
   for (let element of deck){
     console.log(element);
   }
 //   console.log(deck);
+*/
+let typesOfCards=['Diamond','Spades','Club','Hearts'];
+let valueOfCards=["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+let totalCards=[];
+
+for(let i=0;i<typesOfCards.length;i++){
+    for(let j=0;j<valueOfCards.length;j++){
+        totalCards.push(valueOfCards[j]+' of '+typesOfCards[i])
+    }
+}
+// console.log(totalCards);
+function ShuffleCards(totalCards){
+    for(let i=totalCards.length-1;i>0;i--){
+        const j=Math.floor(Math.random() * (i+1));
+        [totalCards[j],totalCards[i]]=[totalCards[i],totalCards[j]]
+    }
+}
+
+ShuffleCards(totalCards);   //calling function
+
+for(let element of totalCards){
+    console.log(element);   //printing cards
+}
