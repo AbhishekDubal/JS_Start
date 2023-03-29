@@ -1069,6 +1069,7 @@ for(let element of totalCards){
  * Because function which is inside function will not able to acces directly.
  * with outside function name we can invoke inside function.
  */
+/*
 let username ="Abhishek";
 let balance =50000;
 
@@ -1085,3 +1086,33 @@ function getBalance(){
     console.log(`You've still $${balance} in account.`);
 }
 }
+*/
+
+////(49). Map:-
+
+let flipcart = new Map([
+    ['Charger',383],['Headphones',473],['pant',543],['SmartWatch',833]
+]);
+
+flipcart.forEach((price,product) => {
+    console.log(`$${price} for ${product}`);
+});
+
+let shoppingCart=0;
+shoppingCart+=flipcart.get('SmartWatch');
+shoppingCart+=flipcart.get('pant')
+console.log(shoppingCart);
+
+flipcart.set('Shoes',400);
+console.log(flipcart);
+
+flipcart.delete('pant');
+console.log(flipcart);
+
+console.log(flipcart.has('pant'));  //false
+
+console.log(flipcart.size);
+
+flipcart.clear();
+console.log(flipcart);
+
