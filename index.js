@@ -1150,7 +1150,7 @@ console.log(flipcart);
 
 ///(51). this keyword: refers current object.
 
-
+/*
 const car1 = {
     carName : 'Tata', color: 'Red', 
     run:function(){
@@ -1164,7 +1164,7 @@ const car1 = {
  const car2 = {
     carName : 'Ford', color: 'Blue', 
     run:function(){
-        console.log(`${this.carName} is running.!`);    //this: refers current object
+        console.log(`${this.carName} is running.!`);    //this: refers currwnt object.
     },
     brake: function(){
         console.log(`${this.carName} has stoped.`);
@@ -1177,3 +1177,31 @@ const car1 = {
  car1.run();
  car1.brake();
  car2.run(); car2.brake();
+ */
+
+ ///(52). // "Class":- (Blueprint),class is named group of properties and functions. 
+
+class Student 
+{
+    marks=32;
+
+     supplemmentary(){
+        console.log(`Student want to give supplemmetary exam.!`);
+    }
+    revaluation(){
+        console.log(`Student has applied for Revaluation`);
+    }
+}
+const student1= new Student();  //Create object of class.
+const student2 = new Student(); //doesn't matter how many you create.
+
+console.log(student1.marks);
+console.log(student2.marks);
+
+student1.revaluation();
+student1.marks+=3;
+console.log(student1.marks);
+
+student2.supplemmentary();
+student2.marks +=20;
+console.log(student2.marks,` student2 got pass`);
