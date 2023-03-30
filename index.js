@@ -1366,4 +1366,62 @@ Car.startTheRace();
 */
 
 
-///\\/\()
+///\\/\(55).Inheritance: one class inherits, another class to acces all the properties and functions of it.
+
+class Animal
+{
+    alive=true;
+    constructor(name)
+    {
+    this.name=name;
+    }
+    eat()
+    {
+        console.log(`${this.name}  do eat!`);
+    }
+    sleep()
+    {
+        console.log(`${this.name} do sleep.!`);
+    }
+}
+class Cat extends Animal
+{
+    run()
+    {
+        console.log(`${this.name} do walk!`);
+    }
+}
+class Fish extends Animal
+{
+    swim()
+    {
+        console.log(`${this.name} can't run, they do swim.!`);
+    }
+}
+class Bird extends Animal
+{
+    fly()
+    {
+        console.log(`${this.name} can't swim and run, but they do fly.!`);
+    }
+}
+const cat = new Cat("Cats")
+console.log(cat);   //output: Cat {alive: true, name: 'Cats'}
+cat.eat();  //output: Cats  do eat!
+
+const fish = new Fish("Fishes");
+console.log(fish);  //output: Fish {alive: true, name: 'Fishes'}
+fish.sleep();   //output: Fishes do sleep.!
+
+const bird = new Bird("BIRD");
+console.log(`Is bird alive?:- ${bird.alive}`);//output: Is bird alive?:- true
+bird.eat(); // output: BIRD  do eat!
+bird.sleep(); //output: BIRD do sleep.!
+bird.fly(); //output: BIRD can't swim and run, but they do fly.!
+
+/**You should create a object of Sub-class.
+ * It's not like you can not create object of Parent(super)class, you can... but, you'll be not getting the benifits of inheritence.
+ * By creating the object of sub-class you can also get or can able to acces the properties and functions from both parent and sub classes. 
+ * But if you had a object of parent then you could be able acces the parent class properties and functions itself.!
+ */
+
