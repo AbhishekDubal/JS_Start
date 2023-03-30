@@ -1089,7 +1089,7 @@ function getBalance(){
 */
 
 ////(49). Map:-
-
+/*
 let flipcart = new Map([
     ['Charger',383],['Headphones',473],['pant',543],['SmartWatch',833]
 ]);
@@ -1115,4 +1115,65 @@ console.log(flipcart.size);
 
 flipcart.clear();
 console.log(flipcart);
+*/
 
+///. Object Oriented Progrqamming:(OOPs)    \\\\\\\\\\\\\\\\
+//(50). "Object":- Anything that exists physically, and should be having properties and functionality.
+/*
+ const car1 = {
+    carName : 'Tata', color: 'Red', 
+    run:function(){
+        console.log(`car is running.!`);
+    },
+    brake: function(){
+        console.log(`car has stoped.`);
+    }
+ }
+ 
+ const car2 = {
+    carName : 'Ford', color: 'Blue', 
+    run:function(){
+        console.log(`car is running.!`);
+    },
+    brake: function(){
+        console.log(`car has stoped.`);
+    }
+ }
+ 
+ console.log(car1.carName);
+ console.log(car2.color);
+ console.log(car1.color);
+ car1.run();
+ car1.brake();
+ car2.run(); car2.brake();
+ */
+
+///(51). this keyword: refers current object.
+
+
+const car1 = {
+    carName : 'Tata', color: 'Red', 
+    run:function(){
+        console.log(`${this.carName} is running.!`);
+    },
+    brake: function(){
+        console.log(`${this.carName} has stoped.`);
+    }
+ }
+ 
+ const car2 = {
+    carName : 'Ford', color: 'Blue', 
+    run:function(){
+        console.log(`${this.carName} is running.!`);    //this: refers current object
+    },
+    brake: function(){
+        console.log(`${this.carName} has stoped.`);
+    }
+ }
+ 
+ console.log(car1.carName);
+ console.log(car2.color);
+ console.log(car1.color);
+ car1.run();
+ car1.brake();
+ car2.run(); car2.brake();
