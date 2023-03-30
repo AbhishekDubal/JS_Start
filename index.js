@@ -1212,7 +1212,7 @@ console.log(student2.marks,` student2 got pass`);
 
 ///(53).Constructor:-Special type of method.
 // Used to initialize the object, because it takes parameter as a value.
-
+/*
 class car 
 {
     constructor(name,color,price){
@@ -1236,3 +1236,103 @@ console.log(car1.price);
 const car2=new car('Vitara Brezza', ' Blue',98379);////2nd Object creation with same template of class and calling constructor
 console.log(`${car2.name} has ${car2.color} color, and it costs $ ${car2.price}`);
 car2.run();
+*/
+/* //Another example:
+class Rectangle {
+    constructor(width, height) {
+      this.width = width;
+      this.height = height;
+    }
+  
+    area() {
+      return this.width * this.height;
+    }
+  }
+  
+  const rect1 = new Rectangle(5, 10);
+  console.log(rect1.area()); // outputs 50
+  */
+
+  ////(54).static:-
+  /* "static" keyword is used to define methods or properties that belong to the class itself, rather than to instances of the class.
+   *  This means that you can call static methods or access static properties on the class itself, without having to create an instance of the class. 
+   * */
+  /*
+  class Calculator
+  {
+    static addition(a,b){
+        return (a+b);
+    }
+
+    static subtraction(a,b){
+        return (a-b);
+    }
+  }
+  const result1=Calculator.addition(40,10);
+  console.log(result1);//output : 50
+
+  let result2= Calculator.subtraction(30,20);
+  console.log(result2);//output:10
+  */
+ //Another example with NON-STATIC and STATIC methods:-
+
+//  class Person 
+//  {
+//     constructor(name, age)
+//     {
+//         this.name=name;
+//         this.age=age;
+//     }
+//     greeting()  //Non-static method
+//     {
+//         console.log(`Hey! My name is ${this.name} and I'm ${this.age} year old.!`);
+//     }
+
+//     static getAdults(persons)
+//     {
+//         return persons.filter(person =>person.age >= 18);//Here the person is like element. and persons are like array of elements
+//     }
+    
+//  }
+//  const person1=new Person("Abhishek",23);
+//  person1.greeting(); //output: Hey! My name is Abhishek and I'm 23 year old.!
+
+// const person2 =new Person("Rohit",16);
+// person2.greeting();//output: Hey! My name is Rohit and I'm 16 year old.!
+
+// const persons =[person1,person2]; //array of person elements
+
+// const adults=Person.getAdults(persons);
+// console.log(adults);
+
+class Person
+{
+    constructor(name, age)
+    {
+        this.name=name;
+        this.age=age;
+    }
+    greeting()
+    {
+        console.log(`Hello! I am ${this.name} and I'm ${this.age} year old!`);
+    }
+
+    static getAdult(persons)
+    {
+        return (persons.filter(element => element.age >= 18))
+    }
+}
+
+const person1 = new Person("ABhi",24);
+const person2 = new Person("Vikas",14);
+
+person1.greeting();
+person2.greeting();
+
+const persons =[person1,person2];
+
+const adults= Person.getAdult(persons);
+for (let adult of adults)
+{
+    console.log(adult);
+}
