@@ -1367,7 +1367,7 @@ Car.startTheRace();
 
 
 ///\\/\(55).Inheritance: one class inherits, another class to acces all the properties and functions of it.
-
+/*
 class Animal
 {
     alive=true;
@@ -1418,10 +1418,71 @@ console.log(`Is bird alive?:- ${bird.alive}`);//output: Is bird alive?:- true
 bird.eat(); // output: BIRD  do eat!
 bird.sleep(); //output: BIRD do sleep.!
 bird.fly(); //output: BIRD can't swim and run, but they do fly.!
-
+*/
 /**You should create a object of Sub-class.
  * It's not like you can not create object of Parent(super)class, you can... but, you'll be not getting the benifits of inheritence.
  * By creating the object of sub-class you can also get or can able to acces the properties and functions from both parent and sub classes. 
  * But if you had a object of parent then you could be able acces the parent class properties and functions itself.!
  */
 
+///\\(56).super keyword:-
+//The `super` keyword can be used in two ways:
+//#1. To call a method in the superclass:
+/*
+class Animal {
+    constructor(name) {
+      this.name = name;
+    }
+    
+    makeSound() {
+      console.log("The animal makes a sound");
+    }
+  }
+  
+  class Dog extends Animal {
+    constructor(name) {
+      super(name); // call the constructor of the superclass
+    }
+    
+    makeSound() {
+      super.makeSound(); // call the makeSound() method of the superclass
+      console.log("The dog barks");
+    }
+  }
+  
+  const dog = new Dog("Max");
+  dog.makeSound();
+   // Output: The animal makes a sound
+   //         The dog barks
+  */
+
+   //#2. To access properties in the superclass:-
+   class Animal {
+    constructor(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+    getInfo() {
+        return `${this.name} is ${this.age} years old`;
+      }
+  }
+  
+  class Dog extends Animal {
+    constructor(name, age, breed) {
+      super(name, age); // call the constructor of the superclass
+      this.breed = breed;
+    }
+    
+    getInfo() {
+      return (`${this.name} is a ${this.breed} and is ${this.age} years old`);
+
+    }
+    
+    getFullInfo() {
+      return (`${super.getInfo()} and likes to play fetch`); // access the getInfo() method of the superclass
+    }
+  }
+  
+  const dog = new Dog("Max", 3, "Golden Retriever");
+  console.log(dog.getFullInfo()); // Output: Max is a Golden Retriever and is 3 years old and likes to play fetch
+  
