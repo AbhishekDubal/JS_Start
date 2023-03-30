@@ -1304,7 +1304,8 @@ class Rectangle {
 
 // const adults=Person.getAdults(persons);
 // console.log(adults);
-
+/*
+///Same example:
 class Person
 {
     constructor(name, age)
@@ -1336,3 +1337,33 @@ for (let adult of adults)
 {
     console.log(adult);
 }
+*/
+//In summary, static methods are useful when you need to define functionality that is related to the class as a whole, while non-static methods are useful when you need to define functionality that is specific to each individual instance of the class.
+
+//Another simple example:-
+/*
+class Car 
+{
+    static countTheCars=0;
+
+    constructor(carName)
+    {
+        this.carName=carName;
+        Car.countTheCars+=1;
+    }
+    static startTheRace()
+    {
+        console.log(`Race starts in 3... 2... 1... Go!`);
+    }
+}
+
+const car1 = new Car("Farari")
+const car2 = new Car("Thor");
+const car3 = new Car("Vitara Breza");
+
+console.log(Car.countTheCars);
+Car.startTheRace();
+*/
+
+
+///\\/\()
