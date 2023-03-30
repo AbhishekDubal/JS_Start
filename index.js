@@ -1179,10 +1179,13 @@ const car1 = {
  car2.run(); car2.brake();
  */
 
- ///(52). // "Class":- (Blueprint),class is named group of properties and functions. 
-
+ ///(52). // "Class":- (Template for other object,Blueprint)
+ //*\class is named group of properties and functions. 
+/*
 class Student 
 {
+    //NOTE:- you don't have to write datatype and function keywod inside class as we do in JAVA.
+   
     marks=32;
 
      supplemmentary(){
@@ -1205,3 +1208,31 @@ console.log(student1.marks);
 student2.supplemmentary();
 student2.marks +=20;
 console.log(student2.marks,` student2 got pass`);
+*/
+
+///(53).Constructor:-Special type of method.
+// Used to initialize the object, because it takes parameter as a value.
+
+class car 
+{
+    constructor(name,color,price){
+        this.name=name;
+        this.color=color;
+        this.price=price;
+    }
+
+    run(){
+        console.log(`${this.name} has started running.!`);
+    }
+}
+
+const car1=new car("Thor",'blue',52220);    //Object creation and calling constructor
+
+console.log(car1.name);
+car1.run();
+console.log(car1.color);
+console.log(car1.price);
+
+const car2=new car('Vitara Brezza', ' Blue',98379);////2nd Object creation with same template of class and calling constructor
+console.log(`${car2.name} has ${car2.color} color, and it costs $ ${car2.price}`);
+car2.run();
