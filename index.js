@@ -1613,7 +1613,7 @@ Color: Sky_blue
 
 ////(60).Anonymous Objects:
 //Object without reference_variable. It'll make less complicate and we don't have to have lot of names.
-
+/*
 class Car 
 {
     constructor(model,year,color){
@@ -1629,27 +1629,27 @@ cars.forEach(element => {
     console.log(`NAME is: ${element.model}, Year:-${element.year}, color is: ${element.color}`);
 });
 //It's works same as previous topic.
-
-// //you can also add another object like:-
-// class Car {
-//     constructor(model, year, color) {
-//       this.color = color;
-//       this.model = model;
-//       this.year = year;
-//     }
-//   }
+*/
+//you can also add another object like:-
+class Car {
+    constructor(model, year, color) {
+      this.color = color;
+      this.model = model;
+      this.year = year;
+    }
+  }
   
-//   const car1 = new Car("Tata", 2022, "White");
-//   const car2 = new Car("Brezza", 2020, "Dark_blue");
-//   const car3 = new Car("Ferrari", 2015, "Sky_blue");
+  const car1 = new Car("Tata", 2022, "White");
+  const car2 = new Car("Brezza", 2020, "Dark_blue");
+  const car3 = new Car("Ferrari", 2015, "Sky_blue");
   
-//   const cars = [car1, car2, car3, new Car("BMW", 2023, "Black")];
+  const cars = [car1, car2, car3, new Car("BMW", 2023, "Black")];
   
-//   console.log(cars[0].color); // Output: White
-//   console.log(cars[2].year); // Output: 2015
-//   console.log(cars[1].model); // Output: Brezza
+  console.log(cars[0].color); // Output: White
+  console.log(cars[2].year); // Output: 2015
+  console.log(cars[1].model); // Output: Brezza
   
-//   cars.forEach((car) => {
-//     console.log(car);
-//   });
+  cars.forEach((car) => {
+    console.log(car);
+  });
   
