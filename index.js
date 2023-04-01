@@ -1488,7 +1488,7 @@ class Animal {
   console.log(dog.getFullInfo()); // Output: Max is a Golden Retriever and is 3 years old and likes to play fetch
   */
 
-//\\/get and set :-
+//\\/(57). get and set :-
 
 //* Note that the get and set methods are defined without the function keyword and are accessed like regular properties, not like methods.
 
@@ -1513,6 +1513,7 @@ console.log(print);
 */
 
 //#SET:- we can update the set method values. where get method is just to retrive the data.
+/*
 class Students
 {
     constructor(firstName, lastName){
@@ -1538,4 +1539,28 @@ console.log(student1._firstName);   //output:- Abhishek
 student1.firstName="Rohit"          
 console.log(student1._firstName);   //output:- Rohit
 console.log(student1.FullName);     //output:- Rohit Dubalgunde
+*/
 
+///(58). Passing object to functions as an argument:-
+
+class Car 
+{
+    constructor(model,year,color){
+        this.color=color;
+        this.model=model;
+        this.year=year;
+    }
+}
+
+const car1=new Car("Tata",2022,"White");
+const car2 = new Car("Brezza",2020,'Dark_blue');
+const car3 = new Car("Ferrari",2015,"Sky_blue");
+
+function displayAllDetails(car){
+console.log(car.model);
+console.log(car.year);
+console.log(car.color);
+}
+displayAllDetails(car1);//Passing referance object as parameter of function
+displayAllDetails(car2);
+displayAllDetails(car3);
