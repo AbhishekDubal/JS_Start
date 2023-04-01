@@ -1542,7 +1542,7 @@ console.log(student1.FullName);     //output:- Rohit Dubalgunde
 */
 
 ///(58). Passing object to functions as an argument:-
-
+/*
 class Car 
 {
     constructor(model,year,color){
@@ -1564,3 +1564,49 @@ console.log(car.color);
 displayAllDetails(car1);//Passing referance object as parameter of function
 displayAllDetails(car2);
 displayAllDetails(car3);
+*/
+
+///\(59). Array of object references :-
+
+class Car 
+{
+    constructor(model,year,color){
+        this.color=color;
+        this.model=model;
+        this.year=year;
+    }
+}
+
+const car1=new Car("Tata",2022,"White");
+const car2 = new Car("Brezza",2020,'Dark_blue');
+const car3 = new Car("Ferrari",2015,"Sky_blue");
+
+const cars=[car1,car2,car3];
+
+console.log(cars[0].color); //white
+console.log(cars[2].year);  //2015
+console.log(cars[1].model); //Brezza
+
+cars.forEach(car => {
+    console.log(car);
+});
+//Outut:
+//{color: 'White', model: 'Tata', year: 2022}
+//{color: 'White', model: 'Tata', year: 2022}
+// {color: 'Sky_blue', model: 'Ferrari', year: 2015}
+cars.forEach(car => {
+    console.log(`Model: ${car.model}\nYear: ${car.year}\nColor: ${car.color}\n`);
+  });
+  /*output:-
+Model: Tata
+Year: 2022
+Color: White
+
+Model: Brezza
+Year: 2020
+Color: Dark_blue
+
+Model: Ferrari
+Year: 2015
+Color: Sky_blue*/
+
