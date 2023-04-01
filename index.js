@@ -1457,6 +1457,7 @@ class Animal {
   */
 
    //#2. To access properties in the superclass:-
+   /*
    class Animal {
     constructor(name, age) {
       this.name = name;
@@ -1485,4 +1486,56 @@ class Animal {
   
   const dog = new Dog("Max", 3, "Golden Retriever");
   console.log(dog.getFullInfo()); // Output: Max is a Golden Retriever and is 3 years old and likes to play fetch
-  
+  */
+
+//\\/get and set :-
+
+//* Note that the get and set methods are defined without the function keyword and are accessed like regular properties, not like methods.
+
+//\\#GET:- We use get set for privary sake.
+/*
+class Student
+{
+    constructor(name,rno){
+        this._name=name;
+        this._rno=rno;
+    }
+    
+    get detailsOfStudent(){
+       return `${this._name} is student name and RollNumber is ${this._rno}.!`
+    }
+}
+const student1=new Student("Abhi",01);
+// student1.name="rohit"; // NOTE:- if you don't use `_` then name of student1 would have chnged to `rohit` from here.
+//So, to avoid that and because of we need a security, we do use `get` and `_` inside it.
+let print=student1.detailsOfStudent; //HERE, don't have to take paranthasis, because get doesn't considered as method while retrive it.
+console.log(print);
+*/
+
+//#SET:- we can update the set method values. where get method is just to retrive the data.
+class Students
+{
+    constructor(firstName, lastName){
+        this._lastName=lastName;
+        this._firstName=firstName;
+    }
+    get FullName(){
+      return `${this._firstName} ${this._lastName}`
+    }
+ //NOTE: You should be having only single parameter value inside SET method. Remember it, it's a new version rule;
+    set firstName(firstName){  
+       this._firstName=firstName;
+    }
+
+    set lastName(lastName){
+        this._lastName=lastName;
+    }
+}
+const student1 = new Students("Abhishek","Dubalgunde");
+
+console.log(student1.FullName);     //output:- Abhishek Dubalgunde
+console.log(student1._firstName);   //output:- Abhishek
+student1.firstName="Rohit"          
+console.log(student1._firstName);   //output:- Rohit
+console.log(student1.FullName);     //output:- Rohit Dubalgunde
+
