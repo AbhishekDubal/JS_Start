@@ -1714,6 +1714,7 @@ try {
   */
 
   //2. Using throw statement:-
+  /*
 function divide(a,b){
     if(b===0)
     {
@@ -1744,4 +1745,14 @@ function divide(a, b) {
     console.log(error.message);
   }
   // Output: Division by zero is not allowed.
+  */
+
+  //3.Using finally block:-
+  try {
+    // code that may throw an error
+  } catch(error) {
+    // code to handle the error
+  } finally {
+    // code to be executed regardless of whether an error occurred or not
+  }
   
