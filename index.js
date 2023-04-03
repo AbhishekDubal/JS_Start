@@ -1791,7 +1791,7 @@ function sayHello(name,name2) {
   setTimeout(sayHello, 3000, 'John','Abhi');//after 3second delay the result will be shown.
   //output: Hello, John!
 */
-
+/*
 function delayMethod1(){
     window.alert("This website might harm your device!");
 }
@@ -1805,3 +1805,19 @@ setTimeout(() => {
 }, 2000);
 
 setTimeout(delayMethod2,6000,"ABHISHEK")    //after 6 sec,(after 4 sec of 1st method, Because this is Asynchronous function,and it won't pause your excecution.)
+*/
+
+////setInterval() method:-\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+let count =0;
+let Upto=prompt("Enter Upto how many times to count: ");
+
+function letMeCount(){
+    count++;
+    if(count<=Upto){
+        console.log(count);
+    }else{
+        clearInterval()
+    }
+}
+setInterval(letMeCount,1000);
