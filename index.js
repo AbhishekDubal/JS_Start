@@ -1783,11 +1783,25 @@ function divide(a, b) {
 //But, setInterval() used for repeating the task of delaying and displaing again and again until we stop it.
 
 //\\\\\\\\setTimeout() /////////////
-
-// function sayHello(name,name2) {
-//     console.log('Hello, ' + name,name2 + '!');
-//   }
+/*
+function sayHello(name,name2) {
+    console.log('Hello, ' + name,name2 + '!');
+  }
   
-//   setTimeout(sayHello, 3000, 'John','Abhi');//after 3second delay the result will be shown.
-//   //output: Hello, John!
+  setTimeout(sayHello, 3000, 'John','Abhi');//after 3second delay the result will be shown.
+  //output: Hello, John!
+*/
 
+function delayMethod1(){
+    window.alert("This website might harm your device!");
+}
+function delayMethod2(myName)
+{
+    alert(`Are you sure? ${myName}!`)
+}
+//Two ways to invoke
+setTimeout(() => {
+    delayMethod1()      //after two sec
+}, 2000);
+
+setTimeout(delayMethod2,6000,"ABHISHEK")    //after 6 sec,(after 4 sec of 1st method, Because this is Asynchronous function,and it won't pause your excecution.)
