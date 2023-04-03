@@ -1808,7 +1808,7 @@ setTimeout(delayMethod2,6000,"ABHISHEK")    //after 6 sec,(after 4 sec of 1st me
 */
 
 ////setInterval() method:-\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
+/*
 let count =0;
 let Upto=prompt("Enter Upto how many times to count: ");
 
@@ -1821,3 +1821,6 @@ function letMeCount(){
     }
 }
 setInterval(letMeCount,1000);
+*/
+
+/////(64). Date 
