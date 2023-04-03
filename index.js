@@ -1630,6 +1630,7 @@ cars.forEach(element => {
 });
 //It's works same as previous topic.
 */
+/*
 //you can also add another object like:-
 class Car {
     constructor(model, year, color) {
@@ -1652,4 +1653,45 @@ class Car {
   cars.forEach((car) => {
     console.log(car);
   });
-  
+  */
+
+  ////(61). Error in JavaScript:-   4-types \\\\\\\\\\\\
+//1.Syntax errors: These occur when you make a mistake in the syntax of your code. For example, forgetting to close a parentheses, forgetting to put a semicolon at the end of a statement, or using a reserved word as a variable name.
+/*
+// Example of syntax error
+if (x === 5 {
+    console.log('x is 5');
+}
+// Error: Missing closing parentheses
+*/
+
+//2. Reference errors: These occur when you try to access a variable or function that hasn't been defined. For example, trying to use a variable that you forgot to declare, or trying to call a function that doesn't exist.
+/*
+// Example of reference error
+console.log(y); // Error: y is not defined
+
+function multiply(a, b) {
+    return a * b;
+}
+
+divide(10, 5); // Error: divide is not defined
+*/
+
+//3. Type errors: These occur when you try to use a value of the wrong type. For example, trying to call a method on a string value, or trying to add a number and a string together.
+/*
+// Example of type error
+let num = 10;
+// num.toUpperCase(); // Error: num.toUpperCase is not a function
+
+let str = "hello";
+console.log(str + 5); // Error: can't convert number to string
+*/
+
+//4. Logic errors: These occur when your code doesn't do what you intended it to do. For example, using the wrong operator in a mathematical calculation, or writing a condition that doesn't evaluate to what you expect.
+/*
+// Example of logic error
+let price = 10;
+let tax = 0.2;
+let total = price + price * tax; // Error: Should be price * (1 + tax)
+console.log(total);
+*/
