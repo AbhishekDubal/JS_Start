@@ -1759,6 +1759,7 @@ function divide(a, b) {
   */
 
  //4.Using Error Object:-
+ /*
   try {
     // code that may throw an error
     let x = y + 10;
@@ -1770,3 +1771,23 @@ function divide(a, b) {
     console.log(customError);
   }
   //output:- CustomError: y is not defined
+*/
+
+///(63). setTimeout() and setInterval() methods:-just like sleep method in java.
+//Used to excecute the function after certain delay of seconds.
+//Asynchronous method(doesn't pause your excecution.)
+
+
+//The difference between is setTimeout() used for delaying the results for certain time
+// and it'll not repeat. It'll used for only one time delay and display.
+//But, setInterval() used for repeating the task of delaying and displaing again and again until we stop it.
+
+//\\\\\\\\setTimeout() /////////////
+
+// function sayHello(name,name2) {
+//     console.log('Hello, ' + name,name2 + '!');
+//   }
+  
+//   setTimeout(sayHello, 3000, 'John','Abhi');//after 3second delay the result will be shown.
+//   //output: Hello, John!
+
