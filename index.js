@@ -1748,6 +1748,7 @@ function divide(a, b) {
   */
 
   //3.Using finally block:-
+  /*
   try {
     // code that may throw an error
   } catch(error) {
@@ -1755,4 +1756,17 @@ function divide(a, b) {
   } finally {
     // code to be executed regardless of whether an error occurred or not
   }
-  
+  */
+
+ //4.Using Error Object:-
+  try {
+    // code that may throw an error
+    let x = y + 10;
+  } catch(error) {
+    // code to handle the error
+    let customError = new Error('An error occurred');
+    customError.name = 'CustomError';
+    customError.message = error.message;
+    console.log(customError);
+  }
+  //output:- CustomError: y is not defined
