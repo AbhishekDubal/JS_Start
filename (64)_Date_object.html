@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Object</title>
+</head>
+<body>
+    <script> 
+
+    //create date object
+    let today=new Date();
+    console.log(today); //Tue Apr 04 2023 00:55:57 GMT+0530 (India Standard Time)
+   
+    //get current year from current date
+    let year = today.getFullYear();
+    console.log(year);      //2023
+
+    //get month of today
+    let month = today.getMonth();
+    console.log(month);     //3 (3=April because January in a sense 0)
+
+    //get day of date 
+    let day = today.getDate();
+    console.log(day);   //4
+
+    //get hours 
+    let hours = today.getHours()
+    console.log(hours);     //1
+
+    //get minutes
+    let minutes = today.getMinutes()
+    console.log(minutes);   //6
+
+    //get seconds
+    let seconds = today.getSeconds()
+    console.log(seconds);   //53
+
+    //get milliseconds
+    let milliseconds = today.getMilliseconds()
+    console.log(milliseconds);  //240
+   
+/*  The getFullYear() method returns the current year,
+    getMonth() returns the current month (0-11),
+    getDate() returns the current day of the month (1-31), 
+    getHours() returns the current hour (0-23),
+    getMinutes() returns the current minute (0-59), 
+    getSeconds() returns the current second (0-59), 
+    and getMilliseconds() returns the current millisecond (0-999).
+*/
+   
+//Setting the date and time components. You can also set the individual date and time components using the various set methods provided by the Date object. For example:
+      
+    today.setFullYear(2001);
+    console.log(today); //Wed Apr 04 2001 01:17:30 GMT+0530 (India Standard Time)
+
+    
+
+
+
+
+</script>
+</body>
+</html>
