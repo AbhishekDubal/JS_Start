@@ -1702,6 +1702,7 @@ console.log(total);
 //3.Using finally block,
 //4.Using Error object.
 
+/*
 //1.Using try-catch block:-
 try {
     // code that may throw an error
@@ -1710,4 +1711,37 @@ try {
     // code to handle the error
     console.log('An error occurred:', error); //output:An error occurred: ReferenceError: y is not defined.
   }
+  */
+
+  //2. Using throw statement:-
+function divide(a,b){
+    if(b===0)
+    {
+        throw "You can not divide any number by ZERO"
+    }
+    return a/b;
+ }
+ try{
+    let result=divide(20,0);
+ }
+ catch(error){
+    console.log("ERROR occured: ", error);
+ }
+ //output: ERROR occured:  You can not divide any number by ZERO
+ 
+//You can also create object using throw keyword.
+function divide(a, b) {
+    if (b === 0) {
+      throw new Error("Division by zero is not allowed.");
+    }
+    return a / b;
+  }
+  
+  try {
+    let result = divide(10, 0);
+    console.log(result);
+  } catch (error) {
+    console.log(error.message);
+  }
+  // Output: Division by zero is not allowed.
   
