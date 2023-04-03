@@ -1695,3 +1695,19 @@ let tax = 0.2;
 let total = price + price * tax; // Error: Should be price * (1 + tax)
 console.log(total);
 */
+
+/////(62).Examples of how to handle exceptions in JavaScript:-
+//1.Using try-catch block,
+//2.Using throw statement,
+//3.Using finally block,
+//4.Using Error object.
+
+//1.Using try-catch block:-
+try {
+    // code that may throw an error
+    let x = y + 10;
+  } catch(error) {
+    // code to handle the error
+    console.log('An error occurred:', error); //output:An error occurred: ReferenceError: y is not defined.
+  }
+  
