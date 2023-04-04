@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+<body>
+
+    <label id="myLabel"></label>
+
+<script>    
+
+
+    function update(){
+        let date =new Date();//It is mandatory that this object you should be writting it here.
+        //Because this is the time that we are updating again and again after a sec.
+
+        document.getElementById('myLabel').innerHTML = showCurrentTime(date);
+    }
+    setInterval(update,1000);
+
+    function showCurrentTime(date){
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let seconds = date.getSeconds();
+        let AMorPM = hours>=12 ? "PM":"AM";
+        hours = (hours%12) ||12;
+
+        if(seconds<10)
+        {
+            seconds="0"+seconds;
+        }
+
+        return `${hours}:${minutes}:${seconds} ${AMorPM}`;
+    }
+
+
+</script>
+</body>
+</html>
