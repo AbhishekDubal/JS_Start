@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SynchVsAsynch</title>
+</head>
+<body>
+
+<script>
+// Synchronous code example:
+console.log('Starts');
+for (let index = 1; index < 5; index++) {
+    console.log(index);
+}
+console.log("END");
+/*
+*In this example, the code runs synchronously, meaning that it runs in a sequence from top to bottom.
+* The output will be "Start" followed by a long delay, then "End".
+*/
+
+//Asynchronous code example:
+console.log("Start");
+setTimeout(() => {
+  console.log("Middle");
+}, 2000);
+console.log("End");
+/*In this example, the setTimeout() function is called asynchronously,
+* meaning that it does not block the rest of the code from running.
+* The output will be "Start", "End", and then "Middle" after a delay of 2 seconds.
+*/
+</script>
+</body>
+</html>
