@@ -99,6 +99,17 @@
     }else
     console.log('both dates are equal');
 
+/*
+\\\\\Calculating Time Difference:-\\\
+* You can calculate the time difference between two dates using the Date object's getTime() method.
+* This method returns the number of milliseconds between two dates.
+* You can then convert this value to seconds, minutes, hours, or days, depending on your needs.
+*/
+let start = new Date();
+let end = new Date();
+let timeDiff = end.getTime() - start.getTime();
+let secondsDiff = Math.floor(timeDiff / 1000);
+console.log(`The time difference is ${secondsDiff} seconds`);
 
 </script>
 </body>
