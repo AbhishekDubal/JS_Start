@@ -1824,3 +1824,12 @@ setInterval(letMeCount,1000);
 */
 
 /////(64). Date 
+
+///TIME() method:-
+
+console.time("The time you took for response is: ");
+alert("Hey, would you want to continue?");
+
+console.timeEnd("The time you took for response is: ");
+
+//output:- The time you took for response is: : 2051.89794921875 ms
