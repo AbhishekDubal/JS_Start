@@ -7,8 +7,13 @@
     <title>Date Object</title>
 </head>
 <body>
-    <script> 
+    
+<h1><u>Date and Time Display:-</u></h1>
+<label id="myLabel1"></label>
+<label id="myLabel2"></label>
 
+    <script> 
+/*
     //create date object
     let today=new Date();
     console.log(today); //Tue Apr 04 2023 00:55:57 GMT+0530 (India Standard Time)
@@ -48,7 +53,7 @@
     //get milliseconds
     let milliseconds = today.getMilliseconds()
     console.log(milliseconds);  //240
-   
+*/   
 /*  The getFullYear() method returns the current year,
     getMonth() returns the current month (0-11),
     getDate() returns the current day of the month (1-31), 
@@ -81,8 +86,8 @@
     These methods allow you to display dates in a way that is easy to read and understand for users. 
     Some of the commonly used formatting methods include toDateString(), toTimeString(), toLocaleDateString(), toLocaleTimeString(), toUTCString(), and toISOString().
 */
-    console.log(today.toDateString()); // Output: Fri Dec 31 2021
-    console.log(today.toLocaleTimeString()); // Output: 9:10:30 PM
+    // console.log(today.toDateString()); // Output: Fri Dec 31 2021
+    // console.log(today.toLocaleTimeString()); // Output: 9:10:30 PM
 
 /*
 \\\   Comparing Dates:-\\\\
@@ -90,14 +95,14 @@
 * which returns the number of milliseconds since January 1, 1970, UTC.
 * You can use this value to compare two dates and determine which one is earlier or later.
 */
-    let date1 = new Date('2022-01-01');
-    let date2 = new Date('2022-02-01');
-    if(date1.getTime() < date2.getTime()) {
-      console.log('date1 is earlier than date2');
-    } else if(date1.getTime()> date2.getTime()){
-      console.log('date2 is earlier than date1');
-    }else
-    console.log('both dates are equal');
+    // let date1 = new Date('2022-01-01');
+    // let date2 = new Date('2022-02-01');
+    // if(date1.getTime() < date2.getTime()) {
+    //   console.log('date1 is earlier than date2');
+    // } else if(date1.getTime()> date2.getTime()){
+    //   console.log('date2 is earlier than date1');
+    // }else
+    // console.log('both dates are equal');
 
 /*
 \\\\\Calculating Time Difference:-\\\
@@ -105,12 +110,47 @@
 * This method returns the number of milliseconds between two dates.
 * You can then convert this value to seconds, minutes, hours, or days, depending on your needs.
 */
-let start = new Date();
-let end = new Date();
-let timeDiff = end.getTime() - start.getTime();
-let secondsDiff = Math.floor(timeDiff / 1000);
-console.log(`The time difference is ${secondsDiff} seconds`);
+// let start = new Date();
+// let end = new Date();
+// let timeDiff = end.getTime() - start.getTime();
+// let secondsDiff = Math.floor(timeDiff / 1000);
+// console.log(`The time difference is ${secondsDiff} seconds`);
+
+
+//On web Page:-
+let date = new Date();
+// let year=date.getFullYear();
+// let month=date.getMonth();
+// let dayOfMonth = date.getDate() 
+// let dayOfWeek = date.getDay();
+// let hours = date.getHours();
+// let minutes=date.getMinutes(); 
+// let seconds = date.getSeconds();
+
+function showDate(date){
+    let year=date.getFullYear();
+    let month =date.getMonth();
+    let dayOfMonth = date.getDate();
+   
+    return `${dayOfMonth}/${month +1}/${year}`;
+}
+
+function showTime(date){
+    let hours = date.getHours();
+    let minutes=date.getMinutes(); 
+    let seconds = date.getSeconds();
+    let amORpm = hours >= 12 ? "pm":"am";
+
+    //Convert military time format to Standard format(24 fromat to 12 hour)
+    hours = (hours%12) || 12;
+
+    return `${hours}:${minutes}:${seconds} ${amORpm}`;
+}
+// document.getElementById('myLabel').innerHTML = month + 1;//+1 because month starts from ZERO to 11 in js.
+document.getElementById('myLabel1').innerHTML = showDate(date);
+document.getElementById('myLabel2').innerHTML = showTime(date);
 
 </script>
+
 </body>
 </html>
