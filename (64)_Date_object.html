@@ -13,6 +13,10 @@
     let today=new Date();
     console.log(today); //Tue Apr 04 2023 00:55:57 GMT+0530 (India Standard Time)
    
+    // let today=new Date(0); console.log(today);//Thu Jan 01 1970 05:30:00 GMT+0530 (India Standard Time)
+    // let today=new Date(2001,02,24,10,59,25,524); console.log(today);//Sat Mar 24 2001 10:59:25 GMT+0530 (India Standard Time)
+    // let today = new Date("May,23,2030 12:10:29");console.log(today);//(64)_Date_object.html:18 Thu May 23 2030 12:10:29 GMT+0530 (India Standard Time)
+   
     //get current year from current date
     let year = today.getFullYear();
     console.log(year);      //2023
@@ -21,9 +25,13 @@
     let month = today.getMonth();
     console.log(month);     //3 (3=April because January in a sense 0)
 
-    //get day of date 
-    let day = today.getDate();
-    console.log(day);   //4
+    //get date of date 
+    let date = today.getDate();
+    console.log(date);   //4
+
+     //get day of date 
+     let day = today.getDay();
+    console.log(day);   //2 (0 is sunday, 1 is monday)
 
     //get hours 
     let hours = today.getHours()
@@ -51,13 +59,40 @@
 */
    
 //Setting the date and time components. You can also set the individual date and time components using the various set methods provided by the Date object. For example:
-      
+/*    
     today.setFullYear(2001);
     console.log(today); //Wed Apr 04 2001 01:17:30 GMT+0530 (India Standard Time)
 
-    
+    today.setMonth(11);console.log(today);//Tue Dec 04 2001 11:33:10 GMT+0530 (India Standard Time)
+
+    today.setTime(0) ;console.log(today);//Thu Jan 01 1970 05:30:00 GMT+0530 (India Standard Time)
+
+    today.setDate(24);console.log(today);//Sat Jan 24 1970 05:30:00 GMT+0530 (India Standard Time)
+
+    today.setHours(10);
+    today.setSeconds(29);
+    today.setMinutes(19);
+    today.setMilliseconds(373);
+    console.log(today);
+*/
+
+/*  "Formatting Dates":- 
+    The Date object has several methods for formatting dates in various ways. 
+    These methods allow you to display dates in a way that is easy to read and understand for users. 
+    Some of the commonly used formatting methods include toDateString(), toTimeString(), toLocaleDateString(), toLocaleTimeString(), toUTCString(), and toISOString().
+*/
+    console.log(today.toDateString()); // Output: Fri Dec 31 2021
+    console.log(today.toLocaleTimeString()); // Output: 9:10:30 PM
 
 
+    let date1 = new Date('2022-01-01');
+    let date2 = new Date('2022-02-01');
+    if(date1.getTime() < date2.getTime()) {
+      console.log('date1 is earlier than date2');
+    } else if(date1.getTime()> date2.getTime()){
+      console.log('date2 is earlier than date1');
+    }else
+    console.log('both dates are equal');
 
 
 </script>
