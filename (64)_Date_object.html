@@ -84,7 +84,12 @@
     console.log(today.toDateString()); // Output: Fri Dec 31 2021
     console.log(today.toLocaleTimeString()); // Output: 9:10:30 PM
 
-
+/*
+\\\   Comparing Dates:-\\\\
+* You can compare dates using the Date object's getTime() method,
+* which returns the number of milliseconds since January 1, 1970, UTC.
+* You can use this value to compare two dates and determine which one is earlier or later.
+*/
     let date1 = new Date('2022-01-01');
     let date2 = new Date('2022-02-01');
     if(date1.getTime() < date2.getTime()) {
