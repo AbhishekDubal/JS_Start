@@ -1827,9 +1827,9 @@ setInterval(letMeCount,1000);
 
 ///TIME() method:-
 
-console.time("The time you took for response is: ");
-alert("Hey, would you want to continue?");
+// console.time("The time you took for response is: ");
+// alert("Hey, would you want to continue?");
 
-console.timeEnd("The time you took for response is: ");
+// console.timeEnd("The time you took for response is: ");
 
-//output:- The time you took for response is: : 2051.89794921875 ms
+// //output:- The time you took for response is: : 2051.89794921875 ms
