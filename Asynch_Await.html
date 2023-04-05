@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynch/Await</title>
+</head>
+<body>
+
+<script>
+
+/** 1. Introduction to asynchronous programming:-
+
+ * In traditional, synchronous programming, code is executed line by line, and each line must complete before the next one can execute.
+ * Asynchronous programming, on the other hand, allows multiple operations to occur simultaneously, without blocking the execution of the main thread.
+ *  This is useful for tasks that may take a long time to complete, such as fetching data from a server or performing complex calculations.
+
+ ** 2. Callback functions:-
+
+ * One way to perform asynchronous operations in JavaScript is to use callback functions.
+ * A callback function is a function that is passed as an argument to another function and is executed when the other function completes.
+*/
+//*  For example:-
+    function getInformation(callBackFunction){
+        setTimeout(()=>{
+            let allData = {name:"Abhishek",rno:01};
+            callBackFunction(allData);
+        },2500)
+    }
+    getInformation((allData)=>{
+        console.log(allData);   //after 2.5 sec, output:{name: 'Abhishek', rno: 1}
+    })
+//In this example, the "getInformation()" function simulates fetching data from a server using the "setTimeout()" function.
+// It takes a "callBackFunction" function as an argument, which is executed with the fetched data after a delay of 2 seconds.
+
+/** 3. Problems with callback functions:-
+
+ * While callback functions are a useful tool for asynchronous programming,
+ * they can lead to problems such as "callback hell" (nested callback functions that can be difficult to read and debug)
+ *  and difficulty handling errors.
+*/
+
+/** 4. Introduction to promises:-
+
+// Promises are an alternative to callback functions for handling asynchronous operations in JavaScript.
+* A promise is an object that represents the eventual completion (or failure) of an asynchronous operation,
+* and allows for more readable and maintainable code.
+*/
+
+//* For example:-
+
+function fetchInfo(){
+    return new Promise((reject, resolve)=>{
+        setTimeout(() => {
+            const data={myName:"Rohit", Age:23};
+            resolve(data);
+        }, 1000);
+    })
+}
+fetchInfo()
+        .then(valueAsData => console.log(valueAsData))
+        .catch(reasonForError => console.log(reasonForError));
+    
+//In this example, the fetchData() function returns a promise that resolves with the fetched data after a delay of 2 seconds.
+// We can then use the then() method to handle the resolved value, and the catch() method to handle any errors that may occur.
+
+/** 5. Introduction to async/await:
+
+ * 
+*/
+</script>
+
+</body>
+</html>
