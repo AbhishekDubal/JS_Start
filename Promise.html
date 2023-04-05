@@ -95,6 +95,50 @@ myPromise2.catch((reason) => {
     secondPromise.then((value)=>{
         console.log(value); //output: 300
     });
+
+//** The then method of a promise takes two optional callback functions as arguments:
+
+    const promise1=new Promise((resolve, reject)=>{
+        resolve(25);
+    });
+
+    promise1.then(
+        (value)=>{
+            console.log(`The fulfilled value is: ${value}`);
+        },
+        (reason)=>{
+            console.log(`The rejected reason is: ${reason}`);
+        }
+);
+// output: The fulfilled value is: 25
+
+//The second callback function, onRejected, is called when the promise is rejected, and it receives the rejection reason as its first argument.
+//* For example:-
+
+        const promise2=new Promise((resolve, reject)=>{
+            reject(new Error('Oops!'));
+        });
+
+        promise2.then(
+            (value)=>{
+                console.log(`The fulfilled value is: ${value}`);
+            },
+            (reason)=>{
+                console.log(`The rejected reason is: ${reason}`);
+            });
+   //output: The rejected reason is: Error: Oops!
+    
+//If either of the two callback functions is omitted, the corresponding event is ignored.
+//* For example:-
+const promise3 = new Promise((resolve, reject) => {
+  resolve(42);
+});
+
+promise3.then((value) => {
+  console.log(`The fulfilled value is ${value}.`);
+});
+// Output: The fulfilled value is 42.
+
 </script>
 
 </body>
