@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROMISES in JS</title>
+</head>
+<body>
+    
+<script>
+
+/*** What are Promises in JavaScript?
+
+* Promises are a way of handling asynchronous operations in JavaScript.
+* Asynchronous operations are those that don't happen immediately and may take some time to complete. 
+* Examples of asynchronous operations in JavaScript include fetching data from a server, reading/writing to a file, or performing animations on a web page.
+
+* To handle these operations, JavaScript provides a construct called a "Promise".
+* A "promise" represents a value that may not be available yet but will be resolved at some point in the future.
+
+* A promise has three states:
+        1)Pending:-The initial state, the promise is neither fulfilled nor rejected.
+
+        2)Fulfilled:- The operation completed successfully, and the promise now has a resulting value.
+
+        3)Rejected:- The operation failed, and the promise has a reason for the failure.
+
+  \*\*\ Creating a Promise:-
+*  To create a new promise, you use the "Promise" constructor.
+*  The constructor takes a single argument: a function that accepts two parameters, `resolve` and `reject`.
+*  These parameters are functions that you call to either fulfill or reject the promise.
+*/
+// Here's an example of how to create a promise that resolves with the value of "Hello World!":-
+const myPromise =  new Promise((resolve,reject) => {
+    resolve("HEllo There! I'm Abhishek.");
+})
+
+//In this example, we call the resolve function with the value "HEllo There! I'm Abhishek.".
+// This fulfills the promise, and the "then" method can be used to handle the fulfilled value.
+
+//***Handling a Fulfilled Promise:-
+
+//* To handle the fulfillment of a promise, you can use the "then" method.
+//* The "then" method takes "two" parameters:-
+//* a function to handle the fulfilled value,
+//* and a function to handle any errors that may occur.
+
+
+myPromise.then((value)=>{
+    console.log(value); //output: HEllo There! I'm Abhishek.
+});
+
+//In this example, we pass a function that logs the fulfilled value to the console.
+
+/*** Handling a Rejected Promise:-
+
+ * If the operation that a promise represents fails,
+ * you can reject the promise by calling the "reject" function with a reason for the failure.
+*/
+//Here's an example of how to create a promise that rejects with an error message:-
+
+const myPromise2 =new Promise((resolve, reject) => {
+    reject("Something went wrong!");
+});
+// To handle the rejection of a promise, you can use the catch method.
+//* The catch method takes a "single" parameter:-
+//* a function to handle the reason for the rejection.
+
+//* Here's an example of how to handle the rejection of the promise we created earlier:
+
+myPromise2.catch((reason) => {
+    console.error(reason);  //output: Something went wrong!
+});
+//In this example, we pass a function that logs the reason for the rejection to the console.
+
+/**Chaining Promises:-
+
+ * Promises can be chained together to create a sequence of asynchronous operations.
+ * When one operation completes, the next operation in the chain can begin.
+ * 
+ * To chain promises, you use the "then" method to return a new promise.
+ *  This new promise will be resolved with the value returned by the function passed to "then".
+ */
+ //* Here's an example of how to chain two promises together:
+
+    const firstPromise =new Promise((resolve, reject) => {
+        resolve(100);
+    });
+
+    const secondPromise =firstPromise.then((value) => {
+        return value +200;
+    });
+
+    secondPromise.then((value)=>{
+        console.log(value); //output: 300
+    });
+</script>
+
+</body>
+</html>
