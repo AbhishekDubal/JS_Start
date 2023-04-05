@@ -141,40 +141,40 @@ promise3.then((value) => {
 
 
 // //Other ways of using these;-
-// const promise =new Promise((resolve, reject)=>{
-//     let checkThisOut=true;
+const promise =new Promise((resolve, reject)=>{
+    let checkThisOut=true;
 
-//     if(checkThisOut)
-//     {
-//         resolve('This is true!')
-//     }else{
-//         reject('This is false!');
-//     }
-// });
-//     promise.then(value => console.log(value))
-//            .catch(reason=> console.log(reason));
+    if(checkThisOut)
+    {
+        resolve('This is true!')
+    }else{
+        reject('This is false!');
+    }
+});
+    promise.then(value => console.log(value))
+           .catch(reason=> console.log(reason));
 
-// const prom1=new Promise((resolve,reject)=>{
-//    setTimeout(resolve,3000)
-// });
-//     prom1.then(()=>{    //Not neccesary to mention "value" here.
-//         console.log("Hey Thank you for waiting!");//it takes 3 seconds to display.
-//     })
+const prom1=new Promise((resolve,reject)=>{
+   setTimeout(resolve,3000)
+});
+    prom1.then(()=>{    //Not neccesary to mention "value" here.
+        console.log("Hey Thank you for waiting!");//it takes 3 seconds to display.
+    })
 
-//     const prom2=new Promise(resolve=>{
-//    setTimeout(resolve,4000)
-// });
-//     prom2.then(()=>{
-//         console.log("Hey Thank you for waiting!");//it takes 4 seconds to display.
-//     })
+    const prom2=new Promise(resolve=>{
+   setTimeout(resolve,4000)
+});
+    prom2.then(()=>{
+        console.log("Hey Thank you for waiting!");//it takes 4 seconds to display.
+    })
 
-// //ANOTHER way of doing this same thing is:-
-//     const prom3=time =>new Promise(resolve=>{
-//    setTimeout(resolve,time)
-// });
-//     prom3(5000).then(()=>{
-//         console.log("Hey Thank you for waiting!");//it takes 5 seconds to display.
-//     })
+//ANOTHER way of doing this same thing is:-
+    const prom3=time =>new Promise(resolve=>{
+   setTimeout(resolve,time)
+});
+    prom3(5000).then(()=>{
+        console.log("Hey Thank you for waiting!");//it takes 5 seconds to display.
+    })
 
 const p1=new Promise((resolve,reject)=>{
     let TrueFalse=false;
