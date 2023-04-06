@@ -67,8 +67,102 @@ fetchInfo()
 
 /** 5. Introduction to async/await:
 
- * 
+ * The async/await syntax is a more recent addition to JavaScript for handling asynchronous operations.
+ * It provides a way to write asynchronous code that looks and behaves like synchronous code, making it easier to read and maintain.
+ *  The async keyword is used to mark a function as asynchronous, and the await keyword is used to wait for a promise to resolve before continuing execution.
+ * For example:
 */
+    async function showTheData(){
+        return new Promise((resolve, reject) =>{
+            setTimeout(() => {
+                const myJob=['Software','Hardware','Astronot'];
+                resolve(myJob);
+            }, 3000);
+        })
+    }
+   
+    async function randomMethod(){//to invoke async method your method should be async.
+    const show=await showTheData();
+    console.log(show);
+    }
+   
+   randomMethod();
+//In this example, we define an async function called "showTheData()" that returns a promise that resolves with the fetched data after a delay of 3 seconds.
+// We then define another async function called "randomMethod()" that uses the await keyword to wait for the promise to resolve before logging the fetched data to the console.
+
+/** 6. Handling errors with try/catch:-
+
+ * In async/await code, errors can be handled using the try/catch syntax, just like in synchronous code.
+*/
+//  For example:-
+
+async function showTheData2(){
+    return new Promise((resolve, reject) => {
+        setTimeout(()=>{
+            const mySkills=new Error('Failed to fetch');
+            reject(mySkills);
+        },4000)
+    })
+}
+
+async function display(){
+    try{
+        const show2 = await showTheData2();
+    console.log(show2);
+    }
+    catch(reason){
+        console.log(reason);
+    }
+}
+
+display();
+//In this example, we define an async function called "showTheData2()" that returns a promise that rejects with an error after a delay of 4 seconds.
+// We then define another async function called display() that uses the try/catch syntax to handle the error and log it to the console.
+
+/** 7. async/await with multiple promises:
+
+ *async/await also allows for more complex asynchronous workflows involving multiple promises.
+  We can use the Promise.all() method to wait for multiple promises to resolve before continuing execution.
+   For example:-
+*/
+async function getThatData1(){
+    return new Promise((resolve, reject) => {
+        setTimeout(()=>{
+        const data1={name :'Abhi', rno:012};
+        resolve(data1);
+        },5000)
+    })
+}
+async function getThatData2(){
+    return new Promise((resolve, reject) => {
+        setTimeout(()=>{
+        const data2={job:'Engineer',sal:2000};
+        resolve(data2);
+        },4000)
+    })
+}
+async function main(){
+    try{
+        const [got1, got2]= await Promise.all([getThatData1(), getThatData2()]);
+        console.log(got1, got2);
+    }    
+    catch(reason){
+        console.log(reason);
+    }
+}
+main();
+//In this example, we define two async functions that each return a promise that resolves with some data after a delay.
+// We then define another async function called main() that uses Promise.all() to wait for both promises to resolve before logging both sets of data to the console.
+
+/** 8. Conclusion:-
+ 
+ * async/await is a powerful tool for writing more readable and maintainable asynchronous code in JavaScript.
+ * By using the async keyword to mark functions as asynchronous and the await keyword to wait for promises to resolve,
+ *  we can write asynchronous code that looks and behaves like synchronous code.
+ *  Additionally, the try/catch syntax allows us to handle errors in a familiar way,
+ *  and Promise.all() provides a way to handle complex workflows involving multiple promises.
+*/
+
 </script>
 
 </body>
