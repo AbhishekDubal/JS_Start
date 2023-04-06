@@ -163,6 +163,41 @@ main();
  *  and Promise.all() provides a way to handle complex workflows involving multiple promises.
 */
 
+//Some additional Examples:-
+
+async function example1(){
+    let loadFile= false;
+
+    if(loadFile){
+        return `File has been LOADED!.`
+    }
+    else{
+        throw 'File has NOT been Loaded yet!.'
+    }
+}
+async function Result(){
+    try {
+    const showResult=await example1();
+    console.log(showResult);
+    } catch (reasonForError) {
+        console.log(reasonForError);
+    }
+}
+Result();
+
+
+async function example2(){
+    let loadFile= false;
+
+    if(loadFile){
+        return `File has been LOADED!.`
+    }
+    else{
+        throw 'File has NOT been Loaded yet!.'
+    }
+}
+example2().then((value)=> console.log(value))
+          .catch(errorReason => console.log(errorReason));
 </script>
 
 </body>
