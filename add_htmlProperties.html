@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <ul id="fruits">
+        <li>Apple</li>
+        <li>Mangos</li>
+        <li>Santra</li>
+    </ul>
+    <script>
+
+const element =document.createElement('h1');
+element.innerHTML="Hello heading";
+// element.innerHTML=window.prompt("eneter your heading:");
+// document.body.append(element);  
+document.body.prepend(element);//helps to get this on top of body of webpage
+
+const p1=document.querySelector('#fruits');
+const p2=document.createElement('li');
+p2.textContent='Potato';
+p1.append(p2);      //add at last in list
+
+const a1=document.querySelector('#fruits');
+const a2=document.createElement('li');
+a2.textContent='Banana';
+a1.prepend(a2)  //add at first in list
+
+//if you want to add in between the list eleemnts:-
+const c1=document.querySelector('#fruits');
+const c2=document.createElement('li');
+c2.textContent='PineApple';
+c1.insertBefore(c2, c1.getElementsByTagName('li')[2]);
+
+</script>
+</body>
+</html>
