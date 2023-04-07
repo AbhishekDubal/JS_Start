@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events.!</title>
+</head>
+<body>
+    <button id="button">click me</button>
+<br><br>
+    <input type="text" id="mytext">
+    <br>
+    <br>
+    <div id="div" style="height: 250px; width: 250px; background-color:cyan;"></div>
+    <script>
+
+        // const element=document.getElementById('button');
+        // element.onclick=doSomething;    // it's a callback,don't have to invoke
+
+        // const element=document.body;
+        // element.onload=doSomething;
+
+        // const element=document.getElementById("mytext");
+        // element.onchange=doSomething;    //it didn't do anything. It'd have,if anything specifically changes done
+
+        // const element=document.getElementById('div');
+        // element.onmousemove=doSomething;
+
+        // element.onmouseout=doSomethingElse;
+
+        const element=document.getElementById('div');
+        element.onmousedown=doSomething
+
+        element.onmouseup=doSomethingElse
+
+        function doSomething(){
+        // alert('You did something. right?')
+        element.style.backgroundColor='lightgreen'    
+        }
+        function doSomethingElse(){
+            element.style.backgroundColor='skyblue'
+        }
+    </script>
+</body>
+</html>
