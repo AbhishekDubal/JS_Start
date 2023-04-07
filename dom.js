@@ -122,3 +122,17 @@ fruits.forEach(fruit =>{
     }
 })
 
+const tagnames=document.getElementsByTagName('li');
+
+console.log(tagnames.length);
+// tagnames[0].style.backgroundColor="orange"
+
+const className=document.getElementsByClassName('divClass');
+className[0].style.backgroundColor='blue'
+
+// const element=document.querySelector("#myTitle");
+// const element=document.querySelector(".pC")
+const element=document.querySelector(".divClass")
+
+element.style.background="lightgreen"
+
