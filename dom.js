@@ -136,3 +136,12 @@ const element=document.querySelector(".divClass")
 
 element.style.background="lightgreen"
 
+const selectElement = document.querySelector("[for]");
+selectElement.style.backgroundColor="red";
+
+const selectElement2 = document.querySelectorAll("li");
+// selectElement2.style.backgroundColor="yellow"//directly it won't work 
+
+selectElement2.forEach(element => {
+    element.style.backgroundColor='lightyellow'
+});
