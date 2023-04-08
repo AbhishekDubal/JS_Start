@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations</title>
+</head>
+<body>
+
+    <button id="button" style="background-color: red;">button</button>
+    <div id="myDiv"></div>
+
+    <script>
+
+const mybutton=document.querySelector("#button");
+const box= document.querySelector("#myDiv");
+
+box.style.height="130px"
+box.style.width="130px"
+box.style.position="relative"
+box.style.backgroundColor="skyblue";
+
+mybutton.addEventListener("click", movementStart);
+
+function movementStart(){
+    let stop;
+    let x=0,y=0;
+    
+     stop=setInterval(moveRight, 10);
+
+    function moveRight(){
+      if(x>=200 || y>=200){
+       clearInterval(stop)
+      }
+      else
+      {
+        x+=1;
+        y+=1;
+        box.style.left=x+"px";
+        box.style.top=y+"px"
+      }
+    }
+}
+
+
+    </script>
+</body>
+</html>
