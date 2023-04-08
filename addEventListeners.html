@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addEventListeners</title>
+</head>
+<body>
+    <div id="innerDiv" ></div>
+    <div id="outerDiv"></div>
+
+    <script>
+const element = document.getElementById('innerDiv');
+element.style.position = 'absolute';
+element.style.top = '50px';
+element.style.left = '50px';
+element.style.height = '200px';
+element.style.width = '200px';
+element.style.border = '3px solid';
+element.style.backgroundColor = 'lightgreen';
+element.style.zIndex = '2';
+
+const element2 = document.getElementById('outerDiv');
+element2.style.position = 'absolute';
+element2.style.top = '100px';
+element2.style.left = '100px';
+element2.style.height = '400px';
+element2.style.width = '400px';
+element2.style.backgroundColor = 'lightgreen';
+element2.style.border = '2px solid red';
+element2.style.zIndex = '1';
+
+element.addEventListener("mousemove", changeColor, true); // Capture the event
+element.addEventListener("mouseout", changeColorElse);
+
+function changeColor() {
+  element.style.backgroundColor = 'skyblue';
+}
+
+function changeColorElse() {
+  element.style.backgroundColor = 'lightgreen';
+}
+
+element2.addEventListener('mousemove', changeColor, false); // Capture the event
+element2.addEventListener('mouseout', changeColorElse);
+
+function changeColor() {
+  element2.style.backgroundColor = 'skyblue';
+}
+
+function changeColorElse() {
+  element2.style.backgroundColor = 'lightgreen';
+}
+
+
+</script>
+</body>
+</html>
