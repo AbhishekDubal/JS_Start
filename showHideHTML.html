@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShowHideHTML</title>
+</head>
+<body>
+
+    <button id="button">click me</button><br><br>
+
+    <img src="https://cdn.britannica.com/56/148856-004-2F59E2D9/APJ-2008.jpg" alt="abdul kalam photo">
+
+    <p>click the button on top</p>
+    <script>
+
+const myImage=document.querySelector('img')
+
+const button=document.querySelector('button');
+// button.addEventListener('click', ()=>{
+//     if(myImage.style.display =="none"){
+//         myImage.style.display="block";
+//     }else
+//     {
+//         myImage.style.display="none"
+//     }
+// })
+
+//another way: where next line of text have not to adjust when image displays.
+// infact it'll be already moved with some space. 
+
+myImage.style.visibility="hidden";  //it'll by default hide the image at refreshing page.
+
+button.addEventListener('click', ()=>{
+    if(myImage.style.visibility=="hidden"){
+        myImage.style.visibility="visible";
+    }
+    else
+    {
+        myImage.style.visibility="hidden";
+    }
+})
+    </script>
+</body>
+</html>
