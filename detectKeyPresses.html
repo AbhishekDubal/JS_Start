@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detect the key Presses</title>
+</head>
+<body>
+    
+    <div id="myDiv" style="height: 100px; width: 100px; background-color: lime; position: relative; border: 2px solid;"></div>
+    
+    <script>
+
+        // window.addEventListener("keydown", (event)=>{ //"kepress" is good but it's not working for ArrowDown kinda things.
+        //     console.log(event.key);    //it'll print out in console whatever you're typing window page
+        // });
+
+      const box=document.querySelector("#myDiv");
+
+      window.addEventListener("keydown", doMovement);
+
+      let x=0; let y=0;
+
+      function doMovement(event){
+        switch(event.key){
+            case "ArrowDown": 
+            x+=15;
+                box.style.top=x+"px";
+                console.log(event.key);   //Not required. but just to understand what you just typed
+            break;
+
+            case "ArrowUp": 
+            x-=15;
+            box.style.top=x+'px';
+            console.log(event.key);
+            break;
+            
+            case "ArrowRight":
+                y+=15;
+                box.style.left=y+ "px";
+                console.log(event.key);
+                break;
+
+            case "ArrowLeft": 
+                y-=15;
+                box.style.left=y+ "px";
+                console.log(event.key);
+                break;
+        }
+      }
+
+
+
+    </script>
+</body>
+</html>
