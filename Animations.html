@@ -44,7 +44,7 @@ function movementStart(){
 }
 */ 
 
-    //rotating box from top to bottom and left to right, and also to right as cycle whele.
+/*   //rotating box from top to bottom and left to right, and also to right as cycle whele.
 const mybutton=document.getElementById('button');
 const myDiv=document.getElementById('myDiv');
 
@@ -70,6 +70,39 @@ function rotates(){
     }
 }
 }
+*/
+    //move in X,Y direction and also Rotate like whele:-
+
+const mybutton=document.querySelector("#button");
+const box=document.getElementById("myDiv");
+
+box.style.backgroundColor="skyblue";
+box.style.height="100px";
+box.style.width="100px";
+box.style.position="absolute";
+
+mybutton.addEventListener("click", startMovement);
+   
+    function startMovement(){
+    let x=0,y=0,degreeRotate=0;
+    let stop=setInterval(rotates, 10);
+
+    function rotates(){
+        if(degreeRotate>=360 && x>=300 && y>=300){
+            clearInterval(stop);
+        }
+        else{
+            x+=1;
+            y+=1;
+            degreeRotate+=2;
+
+            box.style.top=x+"px";
+            box.style.left=y+"px";
+            box.style.transform="rotateZ("+degreeRotate+"deg)"
+        }
+        }
+    }
+
 
     </script>
 </body>
