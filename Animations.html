@@ -9,10 +9,10 @@
 <body>
 
     <button id="button" style="background-color: red;">button</button>
-    <div id="myDiv"></div>
+    <div id="myDiv" ></div>
 
     <script>
-
+/*  //top to bottom and left to right animation//
 const mybutton=document.querySelector("#button");
 const box= document.querySelector("#myDiv");
 
@@ -42,7 +42,34 @@ function movementStart(){
       }
     }
 }
+*/ 
 
+    //rotating box from top to bottom and left to right, and also to right as cycle whele.
+const mybutton=document.getElementById('button');
+const myDiv=document.getElementById('myDiv');
+
+myDiv.style.height="130px"
+myDiv.style.width="130px"
+myDiv.style.position="relative"
+myDiv.style.backgroundColor="skyblue";
+
+mybutton.addEventListener("click", rotationStarts);
+
+function rotationStarts(){
+    let rotateDegree=0;
+    let stoppingInterval=setInterval(rotates, 5)    //5 after every 5 milliseconds
+
+function rotates(){
+    if(rotateDegree <= -360){
+        clearInterval(stoppingInterval);
+    }else{
+        rotateDegree-=1;    //take (-=)if you want in reverse rotaion and if condition (rotateDegree <= -360)
+        // myDiv.style.transform="rotateX("+rotateDegree+"deg)";//top to bottom rotates 360 deg
+        // myDiv.style.transform="rotateY("+rotateDegree+"deg)";//left to right rotates 360 deg
+        myDiv.style.transform="rotateZ("+rotateDegree+"deg)"
+    }
+}
+}
 
     </script>
 </body>
