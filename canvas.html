@@ -39,6 +39,7 @@ context.fillStyle="skyblue"
 context.fill();
 */ 
 
+/*
 //draw Rectangle:-
 
 context.beginPath();
@@ -72,7 +73,17 @@ context.strokeRect(250,0,250,250);
 context.fillStyle="green";
 context.fillRect(250,0,250,250);
 context.stroke();
+*/ 
 
+//draw circle:-
+
+context.beginPath();
+context.arc(250,250,100,0,2*Math.PI); //conext.arc(x, y, radius, startAngle, endAngle, anticlockwise);
+context.fillStyle="red"
+context.fill()
+context.strokeStyle="white";
+context.lineWidth=5;
+context.stroke();
 
 </script>
   </body>
