@@ -1,0 +1,18 @@
+button{
+    background-color: rgb(75, 70, 68);
+    height: 30px;
+    width: 60px;
+    border-radius: 20px;
+    border: 2px solid red;
+    font-family: consolas;
+    cursor: pointer;
+}
+#timeBox{
+    background-color:rgb(186, 52, 148);
+    border: 2px solid wheat;
+    border-radius: 18px;
+    text-align: center;
+    color: chartreuse;
+    font-family: consolas;
+    font-size: 100px;
+}
