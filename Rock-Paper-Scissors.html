@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock-Paper-Scissors game</title>
+    <style>
+        #game{
+            border: 2px solid lightseagreen;
+            border-radius: 20px;
+            text-align: center;
+            font-family: consolas;
+        }
+        #score{
+            font-size: 45px;
+        }
+        button{
+            background-color:lime;
+            border-radius: 10px;
+            cursor: pointer;
+            height: 30px;
+            width: 75px;
+            position: relative;
+            top: 24px;
+        }
+        #roundResult{
+            position: relative;
+            top:40px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="font-family: consolas;">Rock Paper Scissors Game:-</h2>
+
+<div id="game">
+  <div id="options">
+    <button class="option" id="rock">Rock</button>
+    <button class="option" id="paper">Paper</button>
+    <button class="option" id="scissors">Scissors</button>
+  </div>
+  <div id="result">
+    <p id="roundResult"></p>
+    <p id="score">Score: 0</p>
+  </div>
+</div>
+    
+<script src="/Rock-Paper-Scissors.js"></script>
+</body>
+</html>
