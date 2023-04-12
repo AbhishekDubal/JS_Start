@@ -1,25 +1,25 @@
 
-let buttons=["rock","paper","scissors"];
-let playerScore=0;
+const buttons=["rock", "paper", "scissors"];
+let playerScore =0;
 let computerScore=0;
 
-function computerPlay()
+function playComputer()
 {
-    return buttons[Math.floor(Math.random()*buttons.length)];
+    return buttons[Math.floor(Math.random() * buttons.length)];
 }
 
-function compareScores(playerChoice, computerChoice)
+function compareBoth(playerChoice, computerChoice)
 {
     if(playerChoice===computerChoice)
     {
         return "Tie!";
     }
-    else if((playerChoice=== "rock" && computerChoice==="scissors") ||
-            (playerChoice=== "scissors" && computerChoice==="paper") ||
-            (playerChoice=== "paper" && computerChoice==="rock"))
+    else if((playerChoice==="rock" && computerChoice==="scissors") ||
+            (playerChoice==="scissors" && computerChoice==="paper")||
+            (playerChoice==="paper" && computerChoice==="rock"))
             {
                 playerScore+=1;
-                return "You won this turn!";
+                return "You win this turn!";
             }
     else
     {
@@ -28,15 +28,15 @@ function compareScores(playerChoice, computerChoice)
     }
 }
 
-function showTextResult(textResult)
+function displayTextResult(textResult)
 {
-    const text=document.getElementById("messageAfterGame");
-    text.textContent=textResult;
+    const result=document.getElementById("messageAfterGame");
+    result.textContent=textResult;
 }
 
 function updateScoreBoard()
 {
-    const score=document.querySelector("#scoreBoard")
+    const score=document.getElementById("scoreBoard");
     score.textContent= `Score: ${playerScore} - ${computerScore}`;
 }
 
@@ -44,28 +44,28 @@ function resetGame()
 {
     playerScore=0;
     computerScore=0;
-    showTextResult("");
     updateScoreBoard();
+    displayTextResult("");
 }
 
-const chooseButton = document.querySelectorAll("button");
+const allButtuns=document.querySelectorAll("button");
 
-chooseButton.forEach((button) => {
-    button.addEventListener("click", ()=>{
-        const playerChoice = button.id;
-        const computerChoice = computerPlay();
-        const  textResult= compareScores(playerChoice, computerChoice);
-        showTextResult(textResult);
+allButtuns.forEach((button) =>{
+    button.addEventListener("click", () =>{
+        const playerChoice=button.id;
+        const computerChoice=playComputer();
 
+        const text=compareBoth(playerChoice, computerChoice);
+        displayTextResult(text);
         updateScoreBoard();
 
         if(playerScore===5 || computerScore===5)
         {
-            const finalResult = playerScore > computerScore ? "Hurrey! you win this game." : "Sorry! you lose this game";
+            const finalResult=playerScore > computerScore ? "Hurrey! You win this game." : "Sorry! You lose this game.";
 
             alert(finalResult);
 
             resetGame();
         }
     })
-});
+})
