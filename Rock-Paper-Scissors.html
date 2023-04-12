@@ -4,48 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock-Paper-Scissors game</title>
+    <title>Rock Paper Scissors Game</title>
+
     <style>
         #game{
-            border: 2px solid lightseagreen;
-            border-radius: 20px;
+            border: 3px solid lightblue;
+            border-radius: 12px;
             text-align: center;
-            font-family: consolas;
-        }
-        #score{
-            font-size: 45px;
+            height: 150px;
+            position: relative;
+            top: 10px;
         }
         button{
-            background-color:lime;
-            border-radius: 10px;
+            position: relative;
+            top: 15px;
+            background-color: firebrick;
             cursor: pointer;
+            border-radius: 6px;
             height: 30px;
-            width: 75px;
-            position: relative;
-            top: 24px;
+            width: 65px;
         }
-        #roundResult{
+        #messageAfterGame{
             position: relative;
-            top:40px;
+            top: 10px;
+            font-size: 25px;
+            color: cyan;
+            font-family: consolas;
         }
+        #scoreBoard{
+            position: relative;
+            bottom: 15px;
+            font-size: 35px;
+            color:forestgreen;
+            font-family: consolas;
+        }
+
+
     </style>
 </head>
 <body>
+    <h1>Rock Paper Scissors Game:-</h1>
 
-    <h2 style="font-family: consolas;">Rock Paper Scissors Game:-</h2>
+    <div id="game">
+        <div id="buttons">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
 
-<div id="game">
-  <div id="options">
-    <button class="option" id="rock">Rock</button>
-    <button class="option" id="paper">Paper</button>
-    <button class="option" id="scissors">Scissors</button>
-  </div>
-  <div id="result">
-    <p id="roundResult"></p>
-    <p id="score">Score: 0</p>
-  </div>
-</div>
-    
-<script src="/Rock-Paper-Scissors.js"></script>
+        <div id="resultBoard">
+        <h3 id="messageAfterGame"></h3>
+        <h3 id="scoreBoard">Score: 0 - 0</h3>
+        </div>
+    </div>
+
+    <script src="/Rock-Paper-Scissors.js"></script>
 </body>
 </html>
