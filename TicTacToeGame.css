@@ -1,0 +1,48 @@
+.board {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+  }
+  
+  [data-cell] {
+    width: 96px;
+    height: 96px;
+    font-size: 48px;
+    text-align: center;
+    line-height: 96px;
+    border: 1px solid black;
+    cursor: pointer;
+    /* text-align: center; */
+  }
+  
+  .board [data-cell]:nth-child(3n+1) {
+    margin-right: 0;
+  }
+  
+  .board [data-cell]:nth-child(-n+3) {
+    margin-bottom: 0;
+  }
+  
+  
+  .endgame {
+    display: none;
+    position: absolute;
+    top: 60%;
+    left: 15%;
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(222, 10, 10);
+    border: 2px solid black;
+  }
+  
+  .endgame .restart {
+    font-size: 20px;
+    padding: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+  
