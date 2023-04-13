@@ -1,20 +1,35 @@
 
-.cell{
-    width: 75px;
-    height: 75px;
-    border: 2px solid;
-    box-shadow: 0 0 0 2px;
-    line-height: 75px;
-    font-size: 50px;
+.box{
+    width: 60px;
+    height: 60px;
+    
+    border: 2px solid yellowgreen;
+    box-shadow: 0 0 0 3px skyblue;
+}
+
+#boxContainer{
+    display: grid;
+    grid-template-columns: repeat(3,auto);
+    margin:0 auto;
+    width: fit-content;
+
     cursor: pointer;
 }
-#gameContainer{
-    font-family: "Permanent Marker", cursive;
+
+#wholeGame{
+    font-family: consolas;
+    font-size: 30px;
     text-align: center;
+    
 }
-#cellContainer{
-    display: grid;
-    grid-template-columns: repeat(3, auto);
-    width: 225px;
-    margin: auto;
+
+#resetButton{
+    background-color: crimson;
+  
+    position: absolute;
+    top: 280px;
+    height: 30px;
+    width: 65px;
+    border-radius: 12px;
+    cursor: pointer;
 }

@@ -1,80 +1,67 @@
-const cells = document.querySelectorAll(".cell");
-const statusText = document.querySelector("#statusText");
-const restartBtn = document.querySelector("#restartBtn");
-const winConditions = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
-];
-let options = ["", "", "", "", "", "", "", "", ""];
-let currentPlayer = "X";
-let running = false;
 
-initializeGame();
+const boxes      = document.querySelectorAll(".box");
+const textResult = document.querySelector("#textResult");
+const resetButton= document.querySelector("#resetButton");
 
-function initializeGame(){
-    cells.forEach(cell => cell.addEventListener("click", cellClicked));
-    restartBtn.addEventListener("click", restartGame);
-    statusText.textContent = `${currentPlayer}'s turn`;
-    running = true;
-}
-function cellClicked(){
-    const cellIndex = this.getAttribute("cellIndex");
+let gameIsLive   = true;
 
-    if(options[cellIndex] != "" || !running){
-        return;
-    }
+let currentPlayer="X";
+let options      =["","","","","","","","",""];
 
-    updateCell(this, cellIndex);
-    checkWinner();
-}
-function updateCell(cell, index){
-    options[index] = currentPlayer;
-    cell.textContent = currentPlayer;
-}
-function changePlayer(){
-    currentPlayer = (currentPlayer == "X") ? "O" : "X";
-    statusText.textContent = `${currentPlayer}'s turn`;
-}
-function checkWinner(){
-    let roundWon = false;
+const winningRule=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[2,4,6],[1,4,7],[2,5,8],[0,4,8]];
 
-    for(let i = 0; i < winConditions.length; i++){
-        const condition = winConditions[i];
-        const cellA = options[condition[0]];
-        const cellB = options[condition[1]];
-        const cellC = options[condition[2]];
+//add click event listener to each boxes.
+for(let i=0; i<boxes.length;i++){
+    boxes[i].addEventListener("click", ()=>{
+        if(gameIsLive && boxes[i].innerHTML ===""){
+            //set the box value to current Player
+            boxes[i].innerHTML =currentPlayer;
 
-        if(cellA == "" || cellB == "" || cellC == ""){
-            continue;
+            //update the array of options with the recent clicked player
+            options[i]=currentPlayer;
+
+            //now check if anybody win it or it's a draw. and if not then change the turn to nextPlayer
+            if(checkWin(currentPlayer)){
+                textResult.innerHTML=`${currentPlayer} wins this game.`;
+                gameIsLive=false;
+
+            }else if(checkDraw()){
+                textResult.innerHTML=`It's a draw!. Please press "Reset" button to play again`;
+                gameIsLive=false;
+            }else{
+                currentPlayer= currentPlayer==="X" ? "O" : "X";
+                textResult.innerHTML =`${currentPlayer}'s turn now!`;
+            }
         }
-        if(cellA == cellB && cellB == cellC){
-            roundWon = true;
-            break;
+    })
+}
+
+//functions for checking current player's status:-
+function checkWin(player){
+    for(let i=0; i<winningRule.length;i++){
+        if( options[winningRule[i][0]]===player
+            && options[winningRule[i][1]]===player
+            && options[winningRule[i][2]]===player){
+                return true;
         }
     }
+    return false;
+}
 
-    if(roundWon){
-        statusText.textContent = `${currentPlayer} wins!`;
-        running = false;
-    }
-    else if(!options.includes("")){
-        statusText.textContent = `Draw!`;
-        running = false;
-    }
-    else{
-        changePlayer();
-    }
+//function for checking what if the match has draw!
+function checkDraw(){
+    return !options.includes("");
 }
-function restartGame(){
-    currentPlayer = "X";
-    options = ["", "", "", "", "", "", "", "", ""];
-    statusText.textContent = `${currentPlayer}'s turn`;
-    cells.forEach(cell => cell.textContent = "");
-    running = true;
-}
+
+//function for Reset the game:-
+resetButton.addEventListener("click", () =>{
+    gameIsLive =true;
+
+    for(let i=0; i<boxes.length; i++){
+        boxes[i].innerHTML="";
+    }
+
+    options=["","","","","","","","",""];
+    currentPlayer ="X";
+    textResult.innerHTML=`${currentPlayer}' turn Now!`;
+})
