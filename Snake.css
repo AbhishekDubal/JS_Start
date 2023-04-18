@@ -1,0 +1,22 @@
+
+#fullGame{
+    text-align: center;
+}
+
+#gameSpace{
+    border: 6px solid rgb(247, 0, 0);
+}
+
+#scoreBoard{
+    font-size: 50px;
+    font-family: consolas;
+}
+
+#playAgainButton{
+    background-color:rgb(100, 140, 60);
+    color:mediumturquoise;
+    font-size: 20px;
+    height: 40px;
+    border-radius: 8px;
+    cursor: pointer;
+}
