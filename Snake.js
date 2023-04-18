@@ -18,7 +18,7 @@ let snake = [
 let foodX, foodY;
 const snakeColor = "skyblue";
 const snakeBorder= "black";
-const foodColor = "purple";
+const foodColor = "red";
 const gameBoardBackground = "white";
 
 const widthOfGame = gameBoard.width;
@@ -50,7 +50,7 @@ function nextTick(){
             displayFood();
             checkGameIsOver();
             nextTick();
-        }, 200);
+        }, 100);
     }else{
         displayGameOver();
     }
