@@ -1,181 +1,185 @@
 
-const gameSpace       = document.querySelector("#gameSpace");
-const context         = gameSpace.getContext("2d");
-const scoreBoard      = document.querySelector("#scoreBoard");
-const playAgainButton = document.querySelector("#playAgainButton");
+const gameBoard = document.querySelector("#gameBoard");
+const contextOnBoard =gameBoard.getContext("2d");
 
-const gameWidth       = gameSpace.width;
-const gameHeight      = gameSpace.height;
+const restartButton = document.querySelector("#restartButton");
+const scoreBoard = document.querySelector("#scoreBoard");
 
-const gameSpaceBackground = "white";
-const snakeColor          = "skyblue";
-const snakeBorder         = "black";
-const foodColor           = "yellow";
-const gridSize            = 25;
-let running               = false;
-
-let xVelocity   = gridSize; //when the game starts, the snake will move to the right at a speed of unitSize pixels per frame.
-let yVelocity   = 0;    // snake will not move vertically when the game starts.
-
-let foodX;
-let foodY;
-
+let eachPixel = 25;
 let score = 0;
-
-//defining sanke
-let snake   =[
-    {x:gridSize * 4, y:0},  //represents the cell at the 5th column and 1st row 
-    {x:gridSize * 3, y:0},
-    {x:gridSize * 2, y:0},
-    {x:gridSize * 1, y:0},
-    {x:gridSize * 0, y:0}   //represents the cell at the 1st column and 1st row.
+let snake = [
+    {x:eachPixel * 4, y:0},
+    {x:eachPixel * 3, y:0},
+    {x:eachPixel * 2, y:0},
+    {x:eachPixel * 1, y:0},
+    {x:0, y:0}
 ];
 
-window.addEventListener("keydown", changeDirection);
+let foodX, foodY;
+const snakeColor = "skyblue";
+const snakeBorder= "black";
+const foodColor = "purple";
+const gameBoardBackground = "white";
 
-playAgainButton.addEventListener("click", restartGame);
+const widthOfGame = gameBoard.width;
+const heightOfGame = gameBoard.height;
 
-gameStart();
+let xVelocity = eachPixel;
+let yVelocity = 0;
 
-function gameStart(){
-    running = true;
-    scoreBoard.textContent = `Score: ${score}`;
+snakeRunning = false;
+
+window.addEventListener("keydown", changeMovingDirection);
+restartButton.addEventListener("click", restartGame);
+
+startGame();
+
+function startGame(){
+    snakeRunning = true;
     createFood();
-    drawFood();
-    nextTick(); 
-}
-
-function createFood(){
-    function randomFood(min, max){
-        const randomNumber = Math.round((Math.random()*(max-min)+min)/gridSize)*gridSize;
-        return randomNumber;
-    }
-    foodX=randomFood(0,gameWidth-gridSize);
-    foodY=randomFood(0,gameWidth-gridSize);
-}
-
-function drawFood(){
-    context.fillStyle = foodColor;
-    context.fillRect(foodX, foodY, gridSize, gridSize)
+    displayFood();
+    nextTick();
 }
 
 function nextTick(){
-    if(running){
-        setTimeout(()=>{
-            clearGameSpace();
-            drawFood();
+    if(snakeRunning){
+        setTimeout(() => {
+            clearGameBoard();
             moveSnake();
-            drawSnake();
-            checkGameOver();
+            displaySnake();
+            displayFood();
+            checkGameIsOver();
             nextTick();
-        },100);
+        }, 200);
     }else{
         displayGameOver();
     }
 }
+function createFood(){
+    function randomFood(min, max){
+        const randomNumber = Math.round((Math.random() * (max - min)+ min)/eachPixel)*eachPixel;
+    return randomNumber;
+    }
 
-function clearGameSpace(){
-    context.fillStyle= gameSpaceBackground;
-    context.fillRect(0,0, gameWidth, gameHeight);
+    foodX = randomFood(0, widthOfGame - eachPixel);
+    foodY = randomFood(0, heightOfGame - eachPixel);
+}
+
+function displayFood(){
+    contextOnBoard.fillStyle = foodColor;
+    contextOnBoard.fillRect(foodX, foodY, eachPixel, eachPixel);
+}
+
+function clearGameBoard(){
+    contextOnBoard.fillStyle = gameBoardBackground;
+    contextOnBoard.fillRect(0, 0, widthOfGame, heightOfGame);
 }
 
 function moveSnake(){
-    const head = {x:snake[0].x + xVelocity,
-                  y:snake[0].y + yVelocity};
+    const headOfSnake = {x: snake[0].x + xVelocity, y: snake[0].y + yVelocity};
 
-    snake.unshift(head);
+    snake.unshift(headOfSnake);
 
-    //if snake eats
     if(snake[0].x == foodX && snake[0].y == foodY){
-        score++;
+        score +=1;
         scoreBoard.textContent = `Score: ${score}`;
         createFood();
-    }
-    else{
+    }else{
         snake.pop();
     }
 }
 
-function drawSnake(){
-    context.fillStyle = snakeColor;
-    context.strokeStyle = snakeBorder;
+function displaySnake(){
+    contextOnBoard.fillStyle = snakeColor;
+    contextOnBoard.strokeStyle = snakeBorder;
 
-    snake.forEach((snakePart) =>{
-        context.fillRect(snakePart.x, snakePart.y, gridSize, gridSize);
-        context.strokeRect(snakePart.x, snakePart.y, gridSize, gridSize);
+    snake.forEach((snakeBodyPart)=>{
+        contextOnBoard.fillRect(snakeBodyPart.x, snakeBodyPart.y, eachPixel,eachPixel);
+        contextOnBoard.strokeRect(snakeBodyPart.x, snakeBodyPart.y, eachPixel, eachPixel)
     })
 }
 
-function changeDirection(event){
+function changeMovingDirection(event){
     const keyPressed = event.keyCode;
-    const Left =37;
-    const Up =38;
-    const Right =39;
-    const Down =40;
 
-    const moveLeft = (xVelocity == -gridSize);
-    const moveUp =(yVelocity == -gridSize);
-    const moveRight = (xVelocity == gridSize);
-    const moveDown = (yVelocity == gridSize);
+    const Left = 37;
+    const Up   = 38;
+    const Right= 39;
+    const Down = 40;
+
+    const movesLeft = (xVelocity == -eachPixel);
+    const movesRight = (xVelocity == eachPixel);
+    const movesUp   = (yVelocity == -eachPixel);
+    const movesDown = (yVelocity == eachPixel);
 
     switch (true) {
-        case (keyPressed == Left && !moveRight):
-            xVelocity = -gridSize;
+        case (keyPressed == Left  && !movesRight):
+            xVelocity = -eachPixel;
+            yVelocity =0;
             break;
         
-        case (keyPressed == Right && !moveLeft):
-            xVelocity == gridSize;
-            break;   
-        case (keyPressed == Down && !moveUp):
-            yVelocity == gridSize;
-            break; 
-        case (keyPressed == Up && !moveDown):
-            yVelocity == -gridSize;
-            break;     
+        case (keyPressed == Right && !movesLeft):
+            xVelocity = +eachPixel;
+            yVelocity =0;
+            break;
+
+        case (keyPressed == Up && !movesDown):
+            yVelocity = -eachPixel;
+            xVelocity =0;
+            break;
+            
+        case (keyPressed == Down && !movesUp):
+            yVelocity = eachPixel;
+            xVelocity =0;
+            break;
     }
 }
 
-function checkGameOver(){
-    switch(true){
-        case(snake[0].x<0):
-            running=false;
+
+function checkGameIsOver(){
+
+    switch (true) {
+        case (snake[0].x < 0):
+            snakeRunning = false;
             break;
-        case(snake[0].x >= gameWidth):
-            running=false;
+        case (snake[0].y < 0):
+            snakeRunning = false;
             break;
-        case(snake[0].y<0):
-            running=false;
+        case (snake[0].x >= widthOfGame):
+            snakeRunning = false;
             break;
-        case(snake[0].y >= gameWidth):
-            running=false;
+        case (snake[0].y >= heightOfGame):
+            snakeRunning = false;
             break;
     }
 
     for(let i=1; i<snake.length; i++){
-        if (snake[0].x==snake[i].x && snake[0].y== snake[i].y) {
-            running=false;
-        }
+        if(snake[0].x == snake[i].x && snake[0].y == snake[i].y)
+        snakeRunning = false;
     }
 }
 
 function displayGameOver(){
-    context.font="60px MV Boli";
-    context.fillStyle="red"
-    context.textAlign="center";
-    context.filText("Game Over!", gameWidth/2 , gameHeight/2);
-    running=false;
+    contextOnBoard.font = "70px Mv boli";
+    contextOnBoard.fillStyle = "red";
+    contextOnBoard.textAlign = "center";
+    contextOnBoard.fillText("Game Over!", widthOfGame/2, heightOfGame/2);
+    snakeRunning = false;
 }
 
 function restartGame(){
     score = 0;
-    xVelocity = gridSize;
+    scoreBoard.textContent = `Score: ${score}`
+    snakeRunning = true;
+    
+    xVelocity = eachPixel;
     yVelocity = 0;
     snake = [
-        {x:gridSize * 4, y:0},
-        {x:gridSize * 3, y:0},
-        {x:gridSize * 2, y:0},
-        {x:gridSize, y:0},
+        {x:eachPixel * 4, y:0},
+        {x:eachPixel * 3, y:0},
+        {x:eachPixel * 2, y:0},
+        {x:eachPixel * 1, y:0},
         {x:0, y:0}
     ];
-    gameStart();
-};
+    startGame();
+}
