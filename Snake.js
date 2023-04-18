@@ -45,8 +45,8 @@ function nextTick(){
     if(snakeRunning){
         setTimeout(() => {
             clearGameBoard();
-            moveSnake();
             displaySnake();
+            moveSnake();
             displayFood();
             checkGameIsOver();
             nextTick();
