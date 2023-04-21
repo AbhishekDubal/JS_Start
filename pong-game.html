@@ -4,34 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pong Game</title>
-</head>
-<style>
-    #fullGame{
-        text-align: center;
-    }
-    #gameBoard{
-        border: 6px solid slateblue;
-    }
-    #scoreBoard{
-        font-size: 60px;
-        font-family: consolas;
-    }
-    button{
-        height: 40px;
-        width: 100px;
-        font-size: 20px;
-        /* border: 2px solid black; */
-        border-radius: 12px;
-    }
-</style>
-<body>
-<div id="fullGame">
-    <canvas id="gameBoard" width="400" height="400"></canvas>
+    <title>Pong Game Project</title>
 
-    <p id="scoreBoard">0 : 0</p>
-    <button>Restart</button>
-</div>
+    <style>
+        #gameBoard{
+            border: 5px solid rgb(0, 147, 253);
+        }
+        #scoreBoard{
+            font-size: 65px;
+            font-family: consolas;
+            color:lime;
+        }
+        button{
+            font-size: 25px;
+            font-family: MV BOLI;
+            height: 50px;
+            width: 110px;
+            border-radius: 12px;
+            background-color: #e30f0f;
+        }
+        #fullGame{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div id="fullGame">
+        <canvas id="gameBoard" width="400" height="400"></canvas>
+        
+        <p id="scoreBoard">0 : 0</p>
+
+        <button>Restart</button>
+    </div>
 
 <script>
 
@@ -41,260 +47,207 @@ const context = gameBoard.getContext("2d");
 const Restart = document.querySelector("button");
 const scoreBoard = document.querySelector("#scoreBoard");
 
-const gameWidth = gameBoard.width;
-const gameHeight = gameBoard.height;
-
-const gameBoardColor = "forestgreen";
-const padder1Color = "red";
-const padder2Color = "skyblue";
-const padderBorderColor = "black";
+const gameBoardWidth = gameBoard.width;
+const gameBoardHeight = gameBoard.height;
+const gameBoardBackColor = "forestgreen"
+const paddle1Color = "yellow";
+const paddle2Color = "red";
+const paddleBorderColor = "black";
 const ballColor = "white";
-const ballBorderColor = "black";
-
-let player1Score = 0;
-let player2Score = 0;
-
-let paddle1 = {width: 15, height: 60, x:0, y:0};
-let paddle2 = {width: 15, height: 60, x:gameWidth - 15, y:gameHeight - 60};
-
-let ballX = gameWidth/2;
-let ballY = gameHeight/2;
-
+const ballBorder = "black";
+const paddleMoveSpeed = 40;
 const ballRadius = 10;
-let ballSpeed = 1;
-let paddleSpeed = 40;
-let ballMovesX = 0;
-let ballMovesY = 0;
+
+let ballMoveSpeed = 1;
+let ballAtXposition = gameBoardWidth / 2;
+let ballAtYposition = gameBoardHeight / 2;
+
+let ballMovesXdirection = 0;
+let ballMovesYdirection = 0;
+
+let paddle1 = {width: 20, height: 80, x:0, y:0};
+let paddle2 = {width: 20, height :80, x: gameBoardWidth-20, y: gameBoardHeight-80};
+
+let player1Score =0;
+let player2Score =0;
 
 let interval;
+
+
 startGame();
 
 function startGame(){
-    createBall();
-    nextStep();
+    createTheBall();
+    nextMove();
 }
 
-function nextStep(){
-    interval= setTimeout(() =>{
-        clearBoard();
+function nextMove(){
+    interval = setTimeout(() => {
+        clearTheBoard();
         displayPaddles();
-        moveBall();
-        displayBall(ballX, ballY);
-        checkBallHitting();
+        moveTheBall();
+        displayTheBall(ballAtXposition, ballAtYposition);
+        checkTheBallHitting();
 
-        nextStep();
+        nextMove();
     }, 10);
 }
 
-window.addEventListener("keydown", changePaddlesDirection);
-Restart.addEventListener("click", RestartGame);
+function clearTheBoard(){
+    context.fillStyle = gameBoardBackColor;
+    context.fillRect(0,0, gameBoardWidth, gameBoardHeight);
+}
 
-function createBall(){
-    ballSpeed = 1;
-
-    if(Math.round(Math.random())== 1){
-        ballMovesX = ballSpeed;
-    }
-    else{
-        ballMovesX = -ballSpeed;
+function createTheBall(){
+    ballMoveSpeed= 1;
+    if(Math.round(Math.random()) == 1){
+        ballMovesXdirection = 1;
+    }else{
+        ballMovesXdirection = -1;
     }
 
     if(Math.round(Math.random()) == 1){
-        ballMovesY = -ballSpeed;
-    }
-    else{
-        ballMovesY = (ballSpeed);
+        ballMovesYdirection = 1;//NOTE: Don't use ballMoveSpeed here instead of 1, othorwise ball will not move proper way if ballspeed varies..
+    }else{
+        ballMovesYdirection = -1;
     }
 
-    ballX = gameWidth/2;
-    ballY = gameWidth/2;
+    ballAtXposition = gameBoardWidth/2;
+    ballAtYposition = gameBoardHeight/2;
 
-    displayBall(ballX, ballY);
+    displayTheBall(ballAtXposition, ballAtYposition);
 }
 
-function displayBall(ballX, ballY){
+function moveTheBall(){
+    ballAtXposition += (ballMoveSpeed * (ballMovesXdirection));//This is the only place where you can use ballMoveSpeed.
+    ballAtYposition += (ballMoveSpeed * (ballMovesYdirection))
+}
+
+function displayTheBall(ballAtXposition, ballAtYposition){
     context.fillStyle = ballColor;
-    context.strokeStyle = ballBorderColor;
-    context.beginPath();
-    context.lineWidth= 2;
-    context.arc(ballX, ballY, ballRadius, 0, 2 * Math.PI);
-    context.fill();
-    context.stroke();
-}
+    context.strokeStyle = ballBorder;
 
-function clearBoard(){
-    context.fillStyle = gameBoardColor;
-    context.fillRect(0, 0, gameWidth, gameHeight)
+    context.lineWidth = 1;
+    context.beginPath();
+    context.arc(ballAtXposition, ballAtYposition, ballRadius, 0, 2* Math.PI);
+    context.stroke();
+    context.fill();
 }
 
 function displayPaddles(){
-    context.strokeStyle = padderBorderColor;
+    context.strokeStyle = paddleBorderColor;
 
-    context.fillStyle = padder1Color;
+    context.fillStyle = paddle1Color;
     context.fillRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
     context.strokeRect(paddle1.x, paddle1.y, paddle1.width, paddle1.height);
     
-    context.fillStyle = padder2Color;
+    context.fillStyle = paddle2Color;
     context.fillRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
     context.strokeRect(paddle2.x, paddle2.y, paddle2.width, paddle2.height);
 }
 
-function moveBall(){
-    ballX += ballSpeed * ballMovesX;
-    ballY += ballSpeed * ballMovesY;
+function checkTheBallHitting(){
+   
+    //if the ball hits to top and bottom, should reflect
+    if(ballAtYposition <= 0 + ballRadius ){
+        ballMovesYdirection *= -1;//here, we're just reversing the direction, that's why multiplied with negative ONE. So, it won't make any difference in speed or anything but chnages the direction, that's it.
+    }
+    if ( ballAtYposition >= gameBoardWidth -ballRadius) {
+        ballMovesYdirection *= -1;
+    }
+
+    //if the ball hits to left paddle, should reflect
+    if(ballAtXposition <= paddle1.x + paddle1.width + ballRadius){
+        if(ballAtYposition > paddle1.y && ballAtYposition < paddle1.y + paddle1.height){
+            ballAtXposition = paddle1.x + paddle1.width + ballRadius;
+            ballMovesXdirection *= -1;//here, we're just reversing the direction, that's why multiplied with negative ONE. So, it won't make any difference in speed or anything but chnages the direction, that's it.
+            // ballMoveSpeed+=0.1;
+        }
+    }
+
+    //if the ball hits to right paddle, should reflect
+    if(ballAtXposition >= paddle2.x - ballRadius){
+        if(ballAtYposition > paddle2.y && ballAtYposition < paddle2.y + paddle2.height){
+            ballAtXposition = paddle2.x - ballRadius;
+            ballMovesXdirection *= -1;//here, we're just reversing the direction, that's why multiplied with negative ONE. So, it won't make any difference in speed or anything but chnages the direction, that's it.
+            // ballMoveSpeed+=0.1;
+        }
+    }
+
+    //if the ball missed by padder1, should player2 get the point;
+    if(ballAtXposition <= 0){
+        player2Score +=1;
+        updateScoreBoard();
+        createTheBall();
+    }
+    //if the ball missed by padder2, should player1 get the point;
+    if(ballAtXposition >= gameBoardWidth){
+        player1Score +=1;
+        updateScoreBoard();
+        createTheBall();
+    }
 }
 
-function changePaddlesDirection(event){
+window.addEventListener("keydown", MoveThePaddles);
+Restart.addEventListener("click", restartGame);
+
+function MoveThePaddles(event){
     const keyPressed = event.keyCode;
 
-    const W = 87;
-    const S = 83;
     const Up = 38;
     const Down = 40;
+    const W = 87;
+    const S = 83;
 
     switch (keyPressed) {
-        case (W):
-        if (paddle1.y > 0) {
-            paddle1.y -= paddleSpeed;
-            if (paddle1.y < 0) {
-                paddle1.y =0;
+        case (Up):
+            if(paddle2.y > 0){
+                paddle2.y -= paddleMoveSpeed;
             }
-        }
-        break;
-        
-        case (S):
-        if (paddle1.y < gameHeight -paddle1.height) {
-            paddle1.y += paddleSpeed;
-            if(paddle1.y > (gameHeight - paddle1.height)){
-                paddle1.y = (gameHeight - paddle2.height);
-            }
-        }
-        break;
-
-        case (Up): 
-        if (paddle2.y > 0) {
-            paddle2.y -= paddleSpeed;
-            if (paddle2.y < 0) {
-                paddle2.y = 0;
-            }
-        }
-        break;
-
+            break;
         case (Down): 
-        if (paddle2.y < gameHeight - paddle2.height) {
-            paddle2.y += paddleSpeed;
-            if(paddle2.y > (gameHeight - paddle2.height)){
-                paddle2.y = (gameHeight - paddle2.height);
+            if(paddle2.y <gameBoardHeight -paddle2.height){
+                paddle2.y += paddleMoveSpeed;
+            }    
+            break;
+        case (W):
+            if(paddle1.y > 0){
+                paddle1.y -= paddleMoveSpeed;
             }
-        }
-        break;        
+            break;
+        case (S): 
+            if(paddle1.y < gameBoardHeight -paddle1.height){
+                paddle1.y += paddleMoveSpeed;
+            }    
+            break;
     }
-}
-
-// function checkBallHitting(){
-//     if (ballY < 0 + ballRadius) {
-//         ballMovesY *= -1;
-//     }
-//     else if(ballY > gameHeight - ballRadius){
-//         ballMovesY *= -1;
-//     }
-//      if (ballX < 0) {
-//         player2Score +=1;
-//         updateScoreBoard();
-//         createBall();    
-//         return;   
-
-//     }
-//     else if(ballX > gameWidth){
-//         player1Score +=1;
-//         updateScoreBoard();
-//         createBall();   
-//         return;    
-//     }
-
-//     //if the ball hits paddle
-//     if(ballX <= paddle1.x +paddle1.width + ballRadius){
-//         if (ballY >= paddle1.y  && ballY <= paddle1.y + paddle1.height) {
-//             // ballX = paddle1.x +paddle1.width + ballRadius;
-//             ballMovesX *= -1 ;
-//             ballSpeed +=0.1;
-//         }
-//     } 
-//     if(ballX >= paddle2.x - ballRadius){
-//         if (ballY >= paddle2.y  && ballY <= paddle2.y + paddle2.height) {
-//             ballY = paddle2.y +paddle2.width + ballRadius;
-//             ballMovesX *= -1;
-//             ballSpeed 
-//         }
-//     }
-// }
-
-function checkBallHitting() {
-    // check if the ball hits the top or bottom wall
-    if (ballY - ballRadius < 0 || ballY + ballRadius > gameHeight) {
-        ballMovesY = -ballMovesY;
-    }
-
-        if (ballX < 0) {
-            player2Score +=1;
-            updateScoreBoard();
-            createBall();    
-            return;   
-
-        }
-         else if(ballX > gameWidth){
-            player1Score +=1;
-            updateScoreBoard();
-            createBall();   
-            return;    
-    // check if the ball hits the left paddle
-    if (ballX - ballRadius <= paddle1.x + paddle1.width && ballY >= paddle1.y && ballY <= paddle1.y + paddle1.height) {
-        ballMovesX = 1;
-    }
-
-    // check if the ball hits the right paddle
-    if (ballX + ballRadius >= paddle2.x && ballY >= paddle2.y && ballY <= paddle2.y + paddle2.height) {
-        ballMovesX = -1;
-    }
-}
-}
-
-// function moveBall() {
-//     ballX += ballSpeed * ballMovesX;
-//     ballY += ballSpeed * ballMovesY;
-
-//     // check if the ball hits the left or right paddle
-//     if (ballX - ballRadius <= paddle1.x + paddle1.width && ballY >= paddle1.y && ballY <= paddle1.y + paddle1.height ||
-//         ballX + ballRadius >= paddle2.x && ballY >= paddle2.y && ballY <= paddle2.y + paddle2.height) {
-//         ballSpeed += 0.1;
-//         ballMovesX = -ballMovesX;
-//     }
-// }
-
-
-function RestartGame(){
- player1Score = 0;
- player2Score = 0;
-
- paddle1 = {width: 15, height: 60, x:0, y:0};
- paddle2 = {width: 15, height: 60, x:gameWidth - 15, y:gameHeight - 60};
-
- ballX = gameWidth/2;
- ballY = gameHeight/2;
-
- ballSpeed = 1;
- paddleSpeed = 40;
- ballMovesX = 0;
- ballMovesY = 0;
-
- updateScoreBoard();
-clearTimeout(interval);
-startGame();
 }
 
 function updateScoreBoard(){
     scoreBoard.textContent = `${player1Score} : ${player2Score}`;
 }
+
+function restartGame(){
+ ballMoveSpeed = 1;
+ ballAtXposition = gameBoardWidth / 2;
+ ballAtYposition = gameBoardHeight / 2;
+
+ ballMovesXdirection = 0;
+ ballMovesYdirection = 0;
+
+ paddle1 = {width: 20, height: 80, x:0, y:0};
+ paddle2 = {width: 20, height :80, x: gameBoardWidth-20, y: gameBoardHeight-80};
+
+ player1Score =0;
+ player2Score =0;
+
+    clearTimeout(interval);
+    updateScoreBoard();
+
+    startGame();
+}
+
 </script>
+
 </body>
 </html>
